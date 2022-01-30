@@ -1,0 +1,853 @@
+{
+	"info": {
+		"_postman_id": "660fcf2a-93a9-47f1-9fe8-ae04c1367240",
+		"name": "Social-Engine-RealState",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "All Users",
+			"item": [
+				{
+					"name": "register",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "",
+								"value": "",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"AmrH\",\r\n    \"phoneNumber\":\"01281684271\",\r\n    \"password\":\"123456\",\r\n    \"userType\":\"client\",\r\n    \"email\":\"ddd@yahoo.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/register",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"password\":\"123456\",\r\n    \"email\":\"dd@yahoo.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{commonApi}}/login",
+							"host": [
+								"{{commonApi}}"
+							],
+							"path": [
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "activate",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"otp\":\"a5eutCNBvREz\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{commonApi}}/activate",
+							"host": [
+								"{{commonApi}}"
+							],
+							"path": [
+								"activate"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "forgotPassword",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "",
+								"value": "",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"d@yahoo.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{commonApi}}/forgotPassword",
+							"host": [
+								"{{commonApi}}"
+							],
+							"path": [
+								"forgotPassword"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "send new password",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"newPassword\":\"1234567\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{commonApi}}/sendNewPassword/@7kVA!kwNidO",
+							"host": [
+								"{{commonApi}}"
+							],
+							"path": [
+								"sendNewPassword",
+								"@7kVA!kwNidO"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "show property",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{commonApi}}/showProperty/61f6d225e17f5b5f6bbc1e88",
+							"host": [
+								"{{commonApi}}"
+							],
+							"path": [
+								"showProperty",
+								"61f6d225e17f5b5f6bbc1e88"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "search",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "",
+								"value": "",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"minPrice\":0,\r\n    \"maxPrice\":10000,\r\n    \"governorate\":\"Cairo\"\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{commonApi}}/search",
+							"host": [
+								"{{commonApi}}"
+							],
+							"path": [
+								"search"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "AllProperties",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{commonApi}}/AllProperties",
+							"host": [
+								"{{commonApi}}"
+							],
+							"path": [
+								"AllProperties"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "logout",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{commonApi}}/logout",
+							"host": [
+								"{{commonApi}}"
+							],
+							"path": [
+								"logout"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "logoutAll",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{commonApi}}/logoutAll",
+							"host": [
+								"{{commonApi}}"
+							],
+							"path": [
+								"logoutAll"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "sendOtp",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{commonApi}}/sendOtp",
+							"host": [
+								"{{commonApi}}"
+							],
+							"path": [
+								"sendOtp"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "change password",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"oldPass\":\"1234567\",\r\n    \"newPass\":\"1234567\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{commonApi}}/changePassword",
+							"host": [
+								"{{commonApi}}"
+							],
+							"path": [
+								"changePassword"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "edit user",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"sss\",\r\n    \"phoneNumer\":\"01003004001\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{commonApi}}/edit",
+							"host": [
+								"{{commonApi}}"
+							],
+							"path": [
+								"edit"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "edit Address",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"addrId\":\"zzz\",\r\n    \"newContent\":\"aaa\",\r\n    \"newType\":\"home\",\r\n    \"isDefault\":false\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{commonApi}}/editAddr",
+							"host": [
+								"{{commonApi}}"
+							],
+							"path": [
+								"editAddr"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Address",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"addrType\":\"hhhh\",\r\n    \"addrContent\":\"jjjj\",\r\n    \"isDefault\":false\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{commonApi}}/addAddr",
+							"host": [
+								"{{commonApi}}"
+							],
+							"path": [
+								"addAddr"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "me",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{commonApi}}/me",
+							"host": [
+								"{{commonApi}}"
+							],
+							"path": [
+								"me"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Avatar",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/C:/Users/UP_2_Store/Desktop/yyy.PNG"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{commonApi}}/addAvatar",
+							"host": [
+								"{{commonApi}}"
+							],
+							"path": [
+								"addAvatar"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "change Email",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"newEmail\":\"ss@yaho.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{commonApi}}/changeEmail",
+							"host": [
+								"{{commonApi}}"
+							],
+							"path": [
+								"changeEmail"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "confirmChangeEmail",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"otp\":\"PqceehJf4&ak\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{commonApi}}/confirmChangeEmail",
+							"host": [
+								"{{commonApi}}"
+							],
+							"path": [
+								"confirmChangeEmail"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "sendMssg",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"partnerId\":\"61f6d225e17f5b5f6bbc1e82\",\r\n    \"content\":\"HI\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{commonApi}}/sendMssg",
+							"host": [
+								"{{commonApi}}"
+							],
+							"path": [
+								"sendMssg"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get mssgs",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"partnerId\":\"61f6d225e17f5b5f6bbc1e82\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{commonApi}}/getMssgs",
+							"host": [
+								"{{commonApi}}"
+							],
+							"path": [
+								"getMssgs"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete me",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{commonApi}}/deleteMyAccount",
+							"host": [
+								"{{commonApi}}"
+							],
+							"path": [
+								"deleteMyAccount"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "agent only",
+			"item": [
+				{
+					"name": "addProperty",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "GGGG",
+									"type": "text"
+								},
+								{
+									"key": "avatar",
+									"type": "file",
+									"src": "/C:/Users/UP_2_Store/Desktop/yyy.PNG"
+								},
+								{
+									"key": "gallery",
+									"type": "file",
+									"src": [
+										"/C:/Users/UP_2_Store/Desktop/logout.PNG",
+										"/C:/Users/UP_2_Store/Desktop/yyy.PNG"
+									]
+								},
+								{
+									"key": "propType",
+									"value": "Villa",
+									"type": "text"
+								},
+								{
+									"key": "rentOrBuy",
+									"value": "rent",
+									"type": "text"
+								},
+								{
+									"key": "price",
+									"value": "1000",
+									"type": "text"
+								},
+								{
+									"key": "address",
+									"value": "dddddd",
+									"type": "text"
+								},
+								{
+									"key": "governorate",
+									"value": "Cairo",
+									"type": "text"
+								}
+							],
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{commonApi}}/addProperty",
+							"host": [
+								"{{commonApi}}"
+							],
+							"path": [
+								"addProperty"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "show my properties",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{commonApi}}/showMyProperties",
+							"host": [
+								"{{commonApi}}"
+							],
+							"path": [
+								"showMyProperties"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "New Request",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{commonApi}}/deleteProperty/61f71bf961ab4d9b71ceda93",
+							"host": [
+								"{{commonApi}}"
+							],
+							"path": [
+								"deleteProperty",
+								"61f71bf961ab4d9b71ceda93"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "client only",
+			"item": [
+				{
+					"name": "add Favourite property",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"propId\":\"61f6d225e17f5b5f6bbc1e88\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{commonApi}}/addFavProp",
+							"host": [
+								"{{commonApi}}"
+							],
+							"path": [
+								"addFavProp"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "show All favourites",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "New Request",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{commonApi}}/deleteFavProp/61f6d225e17f5b5f6bbc1e88",
+							"host": [
+								"{{commonApi}}"
+							],
+							"path": [
+								"deleteFavProp",
+								"61f6d225e17f5b5f6bbc1e88"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

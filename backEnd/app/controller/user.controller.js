@@ -239,7 +239,7 @@ class User {
             await user.save()
             // should send link to the website not localhost:3000
             // send link in respond only in development
-            sendEmails(user.email, `<h2>localhost:3000/user/sendNewPassword/${otp}</h2>`)
+            sendEmails(user.email, `<h2>localhost:3000/sendNewPassword/${otp}</h2>`)
             res.status(200).send({
                 apiStatus:true, 
                 data:`localhost:3000/user/sendNewPassword/${otp}`, 

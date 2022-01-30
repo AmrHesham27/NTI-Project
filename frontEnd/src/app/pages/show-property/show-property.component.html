@@ -1,0 +1,17 @@
+<app-navbar-user></app-navbar-user>
+<div class='container' *ngIf="propertyData">
+    <img *ngIf="propertyData.avatar" [src]='getAvatarPath()'/>
+    <p>{{propertyData.propType}}</p>
+    <p>{{propertyData.name}}</p>
+    <p>no of views : {{propertyData.noOfViews}}</p>
+    <p>no of favourites : {{propertyData.noOfFav}}</p>
+    <button (click)="AddToFavOrDelete()">{{favButtonText}}</button>
+    <p>{{userMssg}}</p>
+    <p>{{propertyData.description}}</p>
+    <p>Governerate : {{propertyData.governorate}}</p>
+    <p>Address : {{propertyData.address}}</p>
+    <p>Price : {{propertyData.price}}</p>
+    <p>{{propertyData.rentOrBuy}}</p>
+</div>
+
+

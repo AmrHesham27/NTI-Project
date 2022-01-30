@@ -1,0 +1,10 @@
+<app-navbar-user></app-navbar-user>
+<div *ngIf="data == null">there are no properties yet</div>
+<ul *ngIf="data != null">
+    <li *ngFor="let item of data;">
+        <app-prop-card [name]='item.name' [avatar]='item.avatar' [price]='item.price' 
+                       [address]="item.address" [id]='item._id'
+        ></app-prop-card>
+    </li>
+</ul>
+

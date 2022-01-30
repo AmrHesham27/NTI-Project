@@ -1,0 +1,18 @@
+img {
+    width: 320px;
+    height: 150px;
+}
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+button {
+    background-color: crimson;
+    border-radius: 5px;
+    outline: none;
+    border: none;
+    padding: 5px;
+}

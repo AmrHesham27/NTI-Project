@@ -24,9 +24,6 @@ export class Guard2Guard implements CanActivate {
         },
         ()=>{}
       )}
-      else if (this._auth.isUserLoggedIn && !this._auth.userData['activated']) {
-        this.router.navigateByUrl('/activate') 
-      }
     return true;
   }
   

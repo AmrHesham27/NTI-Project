@@ -5,6 +5,11 @@ color:#69707a;
 .img-account-profile {
     height: 10rem;
 }
+@media screen and (max-width:340px) {
+        .img-account-profile{
+            width: 200px;
+        }
+}
 .rounded-circle {
     border-radius: 50% !important;
 }
@@ -58,8 +63,7 @@ color:#69707a;
     margin-right: 1rem;
 }
 .formField {
-    width: 40%;
-    min-width: 320px;
+    max-width: 320px;
     margin: 0 auto;
 }
 @media screen and (max-width: 576px) {
@@ -70,4 +74,14 @@ color:#69707a;
 .buttonContainer{
     margin: 0 auto;
     width: 150px;
+}
+input[type="file"] {
+    display: none;
+}
+.upload_image_Buttons_container{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin: 0 auto;
+    margin-top: 20px;
 }

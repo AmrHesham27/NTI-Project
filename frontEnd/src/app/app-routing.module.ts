@@ -19,7 +19,7 @@ const routes: Routes = [
   {path:'register', component:RegisterComponent },
   {path:'activate', component:ActivateComponent, canActivate:[Guard2Guard]},
   {path:'', component:HomeComponent, canActivate:[Guard2Guard]},
-  {path:'showProperty/:id', component:ShowPropertyComponent, canActivate:[AutheticationGuard]},
+  {path:'showProperty/:id', component:ShowPropertyComponent, canActivate:[Guard2Guard]},
   {path:'myProfile', canActivate:[AutheticationGuard], children:[
     {path:'', component:MyProfileComponent},
     {path:'Security', children:[

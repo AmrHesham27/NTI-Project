@@ -20,10 +20,15 @@
                         <img [src]="imgURL" class="img-account-profile mb-2">
                     </ng-template>
                     <!-- Profile picture help block-->
-                    <div class="small font-italic text-muted mb-4">JPG or PNG no larger than 5 MB</div>
+                    <!-- <div class="small font-italic text-muted mb-4">no larger than 1 MB</div> -->
                     <!-- Profile picture upload button-->
-                    <input (change)="onChange($event)" type="file">
-                    <button style="width: 200px;" class="btn btn-primary" (click)="onUpload()">Upload Image</button>
+                    <div class="upload_image_Buttons_container">
+                        <label style='margin-right: 10px;'class="btn btn-secondary">
+                            <input (change)="onChange($event)" type="file">
+                            Upload Image
+                        </label>
+                        <button style='width: 126px;' class="btn btn-primary" (click)="onUpload()">Save</button>
+                    </div>
                 </div>
                 
             </div>

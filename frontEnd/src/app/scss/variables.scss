@@ -1,0 +1,93 @@
+/* colors */
+$blue : #1f386e;
+$red : #e52f3c;
+$darkGrey : #888;
+$lightGrey : rgba(255,255,255,.65);
+$white : #f6f6f6;
+$green : rgb(52, 187, 70);
+
+/* buttons */
+@mixin sucessBtn {
+    padding: 10px;
+	border: none;
+	font-weight: 500;
+	background-color: $blue;
+	color: #fff;
+	&:hover {
+		background-color: $green;
+	}
+}
+@mixin primaryBtn {
+    background-color: $blue;
+    color: #fff;
+    border: 2px solid white;
+    border-radius: 5px;
+    padding: 12px 15px;
+    font-weight: 600;
+    &:hover{
+        background-color: white;
+        color: $blue;
+    }
+}
+@mixin dangerBtn {
+    background-color: $red;
+    color: #fff;
+    border: 2px solid white;
+    border-radius: 5px;
+    padding: 12px 15px;
+    font-weight: 600;
+    border-radius: 5px;
+    padding: 10px 20px;
+    &:hover{
+        background-color: $white;
+        color: $red;
+        border: 2px solid $red;
+    }
+}
+
+/* headers and text */
+@mixin header {
+    font-size: 30px;
+    font-weight: 900;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.09);
+    padding-bottom: 10px;
+    position: relative;
+    &::after {
+        position: absolute;
+        content: "";
+        background-color: $red;
+        height: 3px;
+        width: 50px;
+        left: 0;
+        bottom: 0;
+        box-sizing: border-box
+    }
+}
+@mixin smallText {
+    color: $lightGrey;
+    font-size: 14px;
+    font-weight: 600;
+    margin: 0;
+}
+@mixin bigText {
+    font-size: 16px;
+    margin: 10px 0 0 0;
+    font-weight: 600;
+}
+
+/* pages */
+@mixin profile {  // for All profile pages ,, add to .page
+    background-color: $blue;
+    color: $blue;
+    display: flex;
+    flex-direction: row;
+}
+@mixin profileContainer { // for All profile pages ,, add to .container
+    @media screen and (max-width: 360px) {
+        padding-top: 40px;
+    }
+    padding-bottom: 60px;
+}
+@mixin shortPage { // for short pages
+    min-height: calc(100vh - 210px);
+}

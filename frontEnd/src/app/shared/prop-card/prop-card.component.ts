@@ -19,6 +19,8 @@ export class PropCardComponent implements OnInit {
   @Input() price:any
   @Input() address:any
   @Input() id:any
+  @Input() desc:any
+  @Input() noOfViews:any
 
   avatarPath (avatar:any){
     return `${this._auth.commonApiUrl}/${avatar.replace('.','/')}`

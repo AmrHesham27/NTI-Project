@@ -1,27 +1,29 @@
-<div class="row justify-content-center login">
-    <form [formGroup]="activate" (ngSubmit)="handleActivate()">
-        <h4 class="text-primary text-center my-4 text-decoration-underline">Activate</h4>
-        <div class="mb-3">
-            <input class="form-control" formControlName="otp" (blur)="onBlur()">
-            <div class="alert alert-danger m-0 p-0" *ngIf="otp?.errors?.['required'] && otpError">
-                <p class="p-0 m-0">otp is required</p>
+<div class="row justify-content-center page">
+    <div class="container">
+        <form [formGroup]="activate" (ngSubmit)="handleActivate()">
+            <h4 class="text-center my-4">Activate</h4>
+            <div class="mb-3">
+                <input class="form-control" formControlName="otp" (blur)="onBlur()">
+                <div class="alert alert-danger mt-2 p-0 failDiv" *ngIf="otp?.errors?.['required'] && otpError">
+                    <p class="p-1 m-0 failMsg">otp is required</p>
+                </div>
             </div>
+    
+            <div class="mb-3 text-center">
+                <button class="activateBtn">
+                    Activate
+                </button>
+            </div>
+        </form>
+        <button class="sendOtp" (click)="sendOtp()">
+            send new otp?
+        </button>
+        <div class="alert alert-danger m-3 p-0" *ngIf="failMssg">
+            <p class="p-3 m-0">{{failMssg}}</p>
         </div>
-
-        <div class="mb-3">
-            <button class="btn btn-primary">
-                Activate
-            </button>
+        <div class="alert alert-success m-3 p-0" *ngIf="successMssg != ''">
+            <p class="p-3 m-0">{{successMssg}}</p>
         </div>
-    </form>
-    <button class="btn btn-primary" (click)="sendOtp()">
-        send new otp?
-    </button>
-    <div class="alert alert-danger m-3 p-0" *ngIf="failMssg">
-        <p class="p-3 m-0">{{failMssg}}</p>
-    </div>
-    <div class="alert alert-success m-3 p-0" *ngIf="successMssg != ''">
-        <p class="p-3 m-0">{{successMssg}}</p>
     </div>
 </div>
 

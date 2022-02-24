@@ -1,0 +1,199 @@
+/* colors */
+/* buttons */
+/* headers and text */
+/* pages */
+/***** page *****/
+.page {
+  color: white;
+  min-height: 80vh;
+}
+
+/***** cards section*****/
+li {
+  list-style-type: none;
+  padding: none;
+}
+
+ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  padding: 0;
+}
+
+/****** search section *****/
+.heroContainer {
+  height: 40vh;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  overflow-y: hidden;
+  -webkit-box-shadow: 200px 200px 200px 200px rgba(0, 0, 0, 0.4) inset;
+          box-shadow: 200px 200px 200px 200px rgba(0, 0, 0, 0.4) inset;
+}
+
+.heroContainer .selectedBtn {
+  background-color: white !important;
+  color: #1f386e !important;
+  font-weight: 900 !important;
+}
+
+.heroContainer option {
+  color: grey;
+}
+
+.heroContainer input {
+  border-radius: 0;
+  width: 23%;
+}
+
+.heroContainer select {
+  border-radius: 0;
+  padding: 5px;
+  width: 23%;
+}
+
+.heroContainer .searchButton {
+  width: 8%;
+  padding: 10px;
+  border: none;
+  font-weight: 500;
+  background-color: #1f386e;
+  color: #fff;
+}
+
+.heroContainer .searchButton:hover {
+  background-color: #34bb46;
+}
+
+.heroContainer h1 {
+  margin: 7vh;
+}
+
+.heroContainer .conatiner {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.heroContainer .searchBar {
+  background-color: #1f386e;
+  width: 86%;
+  margin: 0 10vw;
+  max-width: 760px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.heroContainer .searchBar .buyRentButtons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+.heroContainer .searchBar .buyRentButtons input {
+  margin-left: 6%;
+  width: 100%;
+}
+
+.heroContainer .searchBar .buyRentButtons button {
+  background-color: #1f386e;
+  color: #fff;
+  border: 2px solid white;
+  border-radius: 5px;
+  padding: 12px 15px;
+  font-weight: 600;
+  border-radius: 0;
+  padding: 5px 30px;
+}
+
+.heroContainer .searchBar .buyRentButtons button:hover {
+  background-color: white;
+  color: #1f386e;
+}
+
+.heroContainer .searchInputs {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+@media screen and (max-width: 760px) {
+  .heroContainer .searchBar {
+    width: 100%;
+    margin: 0;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .heroContainer {
+    height: 100vh;
+  }
+  .heroContainer .searchButton {
+    width: 90%;
+    margin: 0 5% 10px 5%;
+  }
+  .heroContainer .searchBar .buyRentButtons {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .heroContainer .searchBar .buyRentButtons .buttons {
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    padding: 20px 0;
+  }
+  .heroContainer .searchBar .buyRentButtons input {
+    width: 90%;
+    margin: 0 5% 10px 5%;
+  }
+  .heroContainer .searchBar .buyRentButtons button {
+    margin: 0 20px;
+  }
+  .heroContainer .searchInputs {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .heroContainer .searchInputs select {
+    width: 90%;
+    margin: 0 5% 10px 5%;
+  }
+  .heroContainer .searchInputs input {
+    width: 90%;
+    margin: 0 5% 10px 5%;
+  }
+}
+/*# sourceMappingURL=search.component.css.map */

@@ -1,0 +1,32 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" routerLink="/">RealState</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul *ngIf="this._auth.isUserLoggedIn; else navbarGuest" class="navbar-nav ms-auto flex-nowrap">
+        <li class="nav-item">
+          <a [ngClass]="{'active': thisPageUrl=='/', 'nav-link':true}" routerLink="/">Home</a>
+        </li>
+        <li class="nav-item">
+          <a [ngClass]="{'active': thisPageUrl=='/myProfile', 'nav-link':true}" routerLink="/myProfile">Profile</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" (click)="handleLogout()" >Logout</a>
+        </li>
+      </ul>
+      <ng-template #navbarGuest>
+        <ul class="navbar-nav ms-auto flex-nowrap">
+          <li class="nav-item">
+            <a [ngClass]="{'active': thisPageUrl=='/register', 'nav-link':true}" routerLink="/register">Register</a>
+          </li>
+          <li class="nav-item">
+            <a [ngClass]="{'active': thisPageUrl=='/login', 'nav-link':true}"  routerLink="/login">Login</a>
+          </li>
+        </ul>
+      </ng-template>
+    </div>
+  </div>
+</nav>
+

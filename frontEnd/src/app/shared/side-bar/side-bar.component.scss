@@ -1,0 +1,159 @@
+@import '../../scss/variables.scss';
+* {
+    color: $blue;
+    font-size: 14px;
+    font-weight: 600;
+}
+/***** container and sideBar *****/
+.container {
+    padding: 0;
+    height: 100%;
+    background-color: $white;
+    border-bottom: 2px solid $blue;
+}
+.sideBar {
+    position: fixed;
+    left: 0;
+    top: 179px;
+    @media screen and (max-width: 360px) {
+        top: 209px;
+    }
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+    transition:all 0.4s;
+}
+.open {
+    left: 0;
+}
+.closed {
+    width: 65px;
+    @media screen and (max-width: 360px) {
+        width: 0;
+    }
+    li {
+        width: 65px;
+    }
+    a{
+        display: none;
+        transition: 0.4s ease;
+    }
+    .fa-circle-arrow-down {
+        display: none;
+        transition: 0.4s ease;
+    }
+}
+/***** elements *****/
+ul {
+    list-style: none;
+    padding-left: 0;
+}
+li {
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+    border-top: 2px solid $blue;
+    &:last-of-type {
+        border-bottom: 2px solid $blue;
+    }
+    cursor: pointer;
+}
+i {
+    //font-weight: 900;
+    font-size: 24px;
+    padding: 10px;
+    margin: 0 10px;
+}
+a {
+    margin: auto 0;
+    text-decoration: none;
+    &:hover {
+        color: $blue;
+    }
+}
+.c1 {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+}
+.c2 {
+    display: flex;
+    flex-direction: row;
+}
+.c3 {
+    display: none;
+    height: 0;
+}
+/***** control buttons *****/
+.fa-bars, .fa-close {
+    position: fixed;
+    font-size: 24px;
+    margin: 10px;
+    color: $blue;
+    cursor: pointer;
+}
+.fa-close {
+    left :140px; //////////
+}
+.fa-bars {
+    border: 1px solid $darkGrey;
+}
+.openBtn, .closedBtn {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    transition: 0.6s ease;
+}
+.openBtn {
+    width: 200px;
+    .fa-close {
+        opacity: 1;
+        transition: 0.6s ease;
+    }
+}
+.closedBtn {
+    width: 65px;
+    @media screen and (max-width: 360px) {
+        width: 0;
+    }
+    .fa-close {
+        opacity: 0;
+        transition: 0.6s ease;
+    }
+    .fa-bars {
+        @media screen and (max-width: 360px) {
+            color: white;
+            background-color: $blue;
+            z-index: 5;
+        }
+    }
+}
+/***** dropdown *****/
+.open-d {
+    padding-bottom: 0;
+    padding-top: 10px;
+    .secondary {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        border-top: 1px solid $darkGrey;
+        &:last-of-type {
+            border-bottom: 1px solid $darkGrey;
+        }
+        padding: 5px 0;
+        transition: 0.6s ease;
+        height: 100%;
+    }
+}
+.closed-d {
+    padding-bottom: 10px;
+    padding-top: 10px;
+    .secondary {
+        height: 0;
+        a {
+            font-size: 0;
+        }
+    }
+    
+}

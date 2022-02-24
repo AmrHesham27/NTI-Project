@@ -12,6 +12,7 @@ export class ChangePasswordComponent implements OnInit {
   constructor(private _auth:AuthUserService) { }
 
   ngOnInit(): void {
+    
   }
   successMssg:string = ''
   failMssg:string = ''

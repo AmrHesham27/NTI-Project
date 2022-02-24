@@ -9,12 +9,11 @@ import { Router } from '@angular/router';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
-
   constructor(private _auth:AuthUserService, private router:Router) { }
   register:FormGroup = new FormGroup({
     name: new FormControl("", [Validators.required, Validators.minLength(3)]),
     phoneNumber: new FormControl('', [Validators.required]),
-    email: new FormControl('', [Validators.required]),
+    email: new FormControl('', [Validators.required, Validators.email]),
     password: new FormControl('', [Validators.required, Validators.minLength(6)]),
     userType: new FormControl('', [Validators.required])
   })
@@ -75,6 +74,6 @@ export class RegisterComponent implements OnInit {
   get phoneNumber(){ return this.register.get('phoneNumber')}
   get userType(){ return this.register.get('userType')}
   ngOnInit(): void {
+    console.log('register page')
   }
-
 }

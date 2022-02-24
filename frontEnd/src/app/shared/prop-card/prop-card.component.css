@@ -1,7 +1,88 @@
+/* colors */
+/* buttons */
+/* headers and text */
+/* pages */
+p {
+  margin-bottom: 0;
+  color: #1f386e;
+  font-weight: 700;
+}
+
+h5 {
+  font-weight: 700;
+  font-size: 20px;
+  color: #1f386e;
+}
+
+.card {
+  color: #1f386e;
+  text-align: left;
+  border-radius: 0;
+  background-color: #f6f6f6;
+}
+
+.c1 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.iconCnotainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+.icon {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding-left: 5px;
+}
+
+.noOfViews {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.price {
+  color: #34bb46;
+  font-weight: 700;
+}
+
 img {
-    height: 150px;
-    width: 100%;
+  height: 150px;
+  width: 100%;
+  border-radius: 0;
 }
+
 .prop {
-    margin: 10px 20px;
+  margin: 10px 20px;
 }
+/*# sourceMappingURL=prop-card.component.css.map */

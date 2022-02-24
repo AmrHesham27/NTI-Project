@@ -1,0 +1,132 @@
+@import '../../scss/variables.scss';
+
+// for carousel
+.container {
+    width: 100%;
+}
+img {
+    width: 100%;
+    max-width: 992px;
+}
+.picsum-img-wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+// for page
+p {
+    margin-bottom: 0;
+}
+.myContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: white;
+    .propInfo {
+        width: 50vw;
+        .container {
+            padding-top: 20px;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            p {
+                padding: 0 15px;
+            }
+        }
+        .header {
+            @include header;
+        }
+    }
+    .description {
+        padding-top: 60px;
+        .header {
+            @include header;
+        }
+    }
+    .controls {
+        .addToFavDiv{
+            display: flex;
+            flex-direction: row;
+            .addToFavButton{
+                cursor: pointer;
+                outline: none;
+                border: none;
+                background-color: $blue;
+                color: white;
+            }
+            .fa-heart{
+                padding: 0 5px;
+                color: rgb(255, 78, 107);
+            }
+        }
+        .contactDiv{
+            display: flex;
+            flex-direction: row;
+            .contactButton{
+                cursor: pointer;
+                outline: none;
+                border: none;
+                background-color: $blue;
+                color: white;
+            }
+            .fa-envelope{
+                padding: 0 5px;
+                color: white;
+            }
+        }
+        .favDiv{
+            display: flex;
+            flex-direction: row;
+            .favButton{
+                cursor: auto;
+                outline: none;
+                border: none;
+                background-color: $blue;
+                color: white;
+            }
+            .fa-heart{
+                padding: 0 5px;
+                color: $red;
+            }
+        }
+        .viewsDiv{
+            display: flex;
+            flex-direction: row;
+            .fa-eye{
+                padding: 0 10px;
+            }
+            .eyeContainer {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+            }
+        }
+        
+    }
+}
+// sapcing and positining 
+.c1 {
+    padding: 100px 7vw;
+}
+.c2 {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    @media screen and (max-width:840px) {
+        flex-direction: column;
+        .controls {
+            padding-top: 30px;
+        }
+    }
+    @media screen and (max-width:540px) {
+        .propInfo {
+            .container{
+                display: flex;
+                flex-direction: column;
+                p {
+                    padding: 5px 0;
+                }
+            }
+        }
+    }
+}

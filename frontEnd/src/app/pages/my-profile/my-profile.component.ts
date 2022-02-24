@@ -8,7 +8,8 @@ import { Router } from '@angular/router';
 })
 export class MyProfileComponent implements OnInit {
   constructor(public _auth:AuthUserService, private router: Router) { }
-  ngOnInit(): void { 
+  ngOnInit(): void {
+    console.log('myProfile page')
   }
   returnUserAvatar(){
     let userAvatar
@@ -16,7 +17,7 @@ export class MyProfileComponent implements OnInit {
       userAvatar = `${this._auth.commonApiUrl}/${this._auth['userData']['avatar'].replace('.','/')}`
     }
     else {
-      userAvatar = `http://bootdey.com/img/Content/avatar/avatar1.png`
+      userAvatar = 'assets/images/avatar.png'
     }
     return userAvatar
   }  

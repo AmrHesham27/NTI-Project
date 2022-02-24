@@ -38,6 +38,7 @@ const propertySchema = new mongoose.Schema({
     },
     avatar:{
         type:String,
+        required: true
     },
     gallery:[{
         type:String

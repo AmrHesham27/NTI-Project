@@ -1,73 +1,143 @@
-body{margin-top:20px;
-    background-color:#f2f6fc;
-    color:#69707a;
+/* colors */
+/* buttons */
+/* headers and text */
+/* pages */
+.page {
+  background-color: #1f386e;
+  color: #1f386e;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  min-height: calc(100vh - 210px);
 }
+
 .img-account-profile {
-    height: 10rem;
+  height: 10rem;
 }
-.rounded-circle {
-    border-radius: 50% !important;
+
+@media screen and (max-width: 340px) {
+  .img-account-profile {
+    width: 160px;
+  }
 }
+
 .card {
-    box-shadow: 0 0.15rem 1.75rem 0 rgb(33 40 50 / 15%);
+  margin-top: 20px;
+  -webkit-box-shadow: 0 0.15rem 1.75rem 0 rgba(33, 40, 50, 0.15);
+          box-shadow: 0 0.15rem 1.75rem 0 rgba(33, 40, 50, 0.15);
 }
+
 .card .card-header {
-    font-weight: 500;
+  font-weight: 500;
+  padding: 1rem 1.35rem;
+  margin-bottom: 0;
+  background-color: rgba(33, 40, 50, 0.03);
+  border-bottom: 1px solid rgba(33, 40, 50, 0.125);
 }
-.card-header:first-child {
-    border-radius: 0.35rem 0.35rem 0 0;
-}
-.card-header {
-    padding: 1rem 1.35rem;
-    margin-bottom: 0;
-    background-color: rgba(33, 40, 50, 0.03);
-    border-bottom: 1px solid rgba(33, 40, 50, 0.125);
-}
+
 .form-control, .dataTable-input {
-    display: block;
-    width: 100%;
-    padding: 0.875rem 1.125rem;
-    font-size: 0.875rem;
-    font-weight: 400;
-    line-height: 1;
-    color: #69707a;
-    background-color: #fff;
-    background-clip: padding-box;
-    border: 1px solid #c5ccd6;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-    border-radius: 0.35rem;
-    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  display: block;
+  width: 100%;
+  padding: 0.875rem 1.125rem;
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: 1;
+  color: #69707a;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #c5ccd6;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border-radius: 0.35rem;
+  -webkit-transition: border-color 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+  transition: border-color 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
 }
 
 .nav-borders .nav-link.active {
-    color: #0061f2;
-    border-bottom-color: #0061f2;
+  font-weight: 700;
+  border-bottom: 2px solid white;
 }
+
 .nav-borders .nav-link {
-    color: #69707a;
-    border-bottom-width: 0.125rem;
-    border-bottom-style: solid;
-    border-bottom-color: transparent;
-    padding-top: 0.5rem;
-    padding-bottom: 0.5rem;
-    padding-left: 0;
-    padding-right: 0;
-    margin-left: 1rem;
-    margin-right: 1rem;
+  color: white;
+  border-bottom-width: 0.125rem;
+  border-bottom-style: solid;
+  border-bottom-color: transparent;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  padding-left: 0;
+  padding-right: 0;
+  margin-left: 1rem;
+  margin-right: 1rem;
 }
+
+/***** buttons *****/
+.saveButton {
+  padding: 10px;
+  border: none;
+  font-weight: 500;
+  background-color: #1f386e;
+  color: #fff;
+  border-radius: 5px;
+}
+
+.saveButton:hover {
+  background-color: #34bb46;
+}
+
+/*****  *****/
 .formField {
-    width: 40%;
-    min-width: 320px;
-    margin: 0 auto;
+  max-width: 320px;
+  margin: 0 auto;
 }
+
 @media screen and (max-width: 576px) {
-    .formField{
-        width: 100%;
-    }
+  .formField {
+    width: 100%;
+  }
 }
-.buttonContainer{
-    margin: 0 auto;
-    width: 150px;
+
+.container-xl {
+  padding-bottom: 60px;
+  padding-top: 60px;
 }
+
+form p {
+  color: #1f386e;
+}
+
+.logoutBtn {
+  padding: 10px;
+  border: none;
+  font-weight: 500;
+  background-color: #1f386e;
+  color: #fff;
+  border-radius: 5px;
+  padding: 10px 20px;
+}
+
+.logoutBtn:hover {
+  background-color: #34bb46;
+}
+
+.buttonContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-top: 30px;
+}
+/*# sourceMappingURL=logout-all.component.css.map */

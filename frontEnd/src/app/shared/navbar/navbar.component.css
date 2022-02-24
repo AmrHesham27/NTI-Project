@@ -1,0 +1,77 @@
+/* colors */
+/* buttons */
+/* headers and text */
+/* pages */
+.navbar {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  z-index: 1000;
+  border-bottom: 2px solid #1f386e;
+}
+
+.nav-link {
+  cursor: pointer;
+  color: #1f386e !important;
+  font-weight: 700;
+  font-size: 15px;
+}
+
+.nav-link:hover {
+  color: #e52f3c !important;
+}
+
+.navbar-toggler {
+  border-radius: 0;
+}
+
+.navbar-brand {
+  margin: 20px;
+  margin-left: 15vw;
+  font-weight: 900;
+  font-size: 30px;
+  color: #1f386e;
+}
+
+.navbar-brand:hover, .navbar-brand:focus {
+  color: #1f386e;
+}
+
+ul {
+  margin-right: 7vw;
+}
+
+button {
+  margin-right: 20px;
+}
+
+@media screen and (max-width: 992px) {
+  .navbar-collapse {
+    margin-left: 15vw;
+  }
+}
+
+@media screen and (max-width: 360px) {
+  .container-fluid {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  .navbar-brand {
+    margin: 10px;
+  }
+  button {
+    margin: 0 auto 10px auto !important;
+  }
+  .navbar-collapse {
+    margin-left: 0;
+  }
+}
+/*# sourceMappingURL=navbar.component.css.map */

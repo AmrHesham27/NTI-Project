@@ -1,18 +1,249 @@
-img {
-    width: 320px;
-    height: 150px;
-}
+/* colors */
+/* buttons */
+/* headers and text */
+/* pages */
 .container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
+  width: 100%;
 }
 
-button {
-    background-color: crimson;
-    border-radius: 5px;
-    outline: none;
-    border: none;
-    padding: 5px;
+img {
+  width: 100%;
+  max-width: 992px;
 }
+
+.picsum-img-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+p {
+  margin-bottom: 0;
+}
+
+.myContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  color: white;
+}
+
+.myContainer .propInfo {
+  width: 50vw;
+}
+
+.myContainer .propInfo .container {
+  padding-top: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.myContainer .propInfo .container p {
+  padding: 0 15px;
+}
+
+.myContainer .propInfo .header {
+  font-size: 30px;
+  font-weight: 900;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.09);
+  padding-bottom: 10px;
+  position: relative;
+}
+
+.myContainer .propInfo .header::after {
+  position: absolute;
+  content: "";
+  background-color: #e52f3c;
+  height: 3px;
+  width: 50px;
+  left: 0;
+  bottom: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.myContainer .description {
+  padding-top: 60px;
+}
+
+.myContainer .description .header {
+  font-size: 30px;
+  font-weight: 900;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.09);
+  padding-bottom: 10px;
+  position: relative;
+}
+
+.myContainer .description .header::after {
+  position: absolute;
+  content: "";
+  background-color: #e52f3c;
+  height: 3px;
+  width: 50px;
+  left: 0;
+  bottom: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.myContainer .controls .addToFavDiv {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+.myContainer .controls .addToFavDiv .addToFavButton {
+  cursor: pointer;
+  outline: none;
+  border: none;
+  background-color: #1f386e;
+  color: white;
+}
+
+.myContainer .controls .addToFavDiv .fa-heart {
+  padding: 0 5px;
+  color: #ff4e6b;
+}
+
+.myContainer .controls .contactDiv {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+.myContainer .controls .contactDiv .contactButton {
+  cursor: pointer;
+  outline: none;
+  border: none;
+  background-color: #1f386e;
+  color: white;
+}
+
+.myContainer .controls .contactDiv .fa-envelope {
+  padding: 0 5px;
+  color: white;
+}
+
+.myContainer .controls .favDiv {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+.myContainer .controls .favDiv .favButton {
+  cursor: auto;
+  outline: none;
+  border: none;
+  background-color: #1f386e;
+  color: white;
+}
+
+.myContainer .controls .favDiv .fa-heart {
+  padding: 0 5px;
+  color: #e52f3c;
+}
+
+.myContainer .controls .viewsDiv {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+.myContainer .controls .viewsDiv .fa-eye {
+  padding: 0 10px;
+}
+
+.myContainer .controls .viewsDiv .eyeContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.c1 {
+  padding: 100px 7vw;
+}
+
+.c2 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+@media screen and (max-width: 840px) {
+  .c2 {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .c2 .controls {
+    padding-top: 30px;
+  }
+}
+
+@media screen and (max-width: 540px) {
+  .c2 .propInfo .container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .c2 .propInfo .container p {
+    padding: 5px 0;
+  }
+}
+/*# sourceMappingURL=show-property.component.css.map */

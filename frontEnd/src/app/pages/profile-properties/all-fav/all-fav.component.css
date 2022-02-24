@@ -1,0 +1,35 @@
+/* colors */
+/* buttons */
+/* headers and text */
+/* pages */
+/***** page *****/
+.page {
+  background-color: #1f386e;
+  color: #1f386e;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  min-height: 80vh;
+}
+
+.myContainer {
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+
+.c1 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+/*# sourceMappingURL=all-fav.component.css.map */

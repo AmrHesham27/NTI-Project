@@ -40,13 +40,14 @@ export class ActivateComponent implements OnInit {
       this._auth.activate(this.activate.value).subscribe(
         (res:any) => {
           console.log(res.data)
+          this.router.navigateByUrl('/myProfile')
         },
         (e)=>{ 
           this.failMssg = 'activation otp is wrong'
           console.log(e) 
         },
         ()=>{
-          this.router.navigateByUrl('/myProfile')
+          this._auth.me().subscribe()
         }        
       )
     }

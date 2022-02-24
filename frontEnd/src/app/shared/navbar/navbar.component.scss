@@ -1,0 +1,61 @@
+@import '../../scss/variables.scss';
+
+.navbar {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 2px solid $blue;
+}
+.nav-link {
+    cursor: pointer;
+    color: $blue !important;
+    font-weight: 700;
+    font-size: 15px;
+    &:hover {
+        color : $red !important;
+    }
+}
+.navbar-toggler {
+    border-radius: 0;
+}
+.navbar-brand {
+    margin: 20px;
+    margin-left: 15vw;
+    font-weight: 900;
+    font-size: 30px;
+    color: $blue;
+    &:hover, &:focus {
+        color: $blue;
+    }
+}
+ul {
+    margin-right: 7vw;
+}
+button {
+    margin-right: 20px;
+}
+
+// for navbar less than 992px 
+@media screen and (max-width: 992px) {
+    .navbar-collapse {
+        margin-left: 15vw;
+    }
+}   
+// for nav bar less than 360px
+@media screen and (max-width: 360px) {
+    .container-fluid {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    .navbar-brand {
+        margin: 10px;
+    }
+    button {
+        margin: 0 auto 10px auto !important;
+    }
+    .navbar-collapse {
+        margin-left: 0;
+    }
+}

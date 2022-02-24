@@ -1,17 +1,62 @@
-<app-navbar-user></app-navbar-user>
-<div class='container' *ngIf="propertyData">
-    <img *ngIf="propertyData.avatar" [src]='getAvatarPath()'/>
-    <p>{{propertyData.propType}}</p>
-    <p>{{propertyData.name}}</p>
-    <p>no of views : {{propertyData.noOfViews}}</p>
-    <p>no of favourites : {{propertyData.noOfFav}}</p>
-    <button (click)="AddToFavOrDelete()">{{favButtonText}}</button>
-    <p>{{userMssg}}</p>
-    <p>{{propertyData.description}}</p>
-    <p>Governerate : {{propertyData.governorate}}</p>
-    <p>Address : {{propertyData.address}}</p>
-    <p>Price : {{propertyData.price}}</p>
-    <p>{{propertyData.rentOrBuy}}</p>
+<div class='myContainer' *ngIf="propertyData" >
+    <ngb-carousel *ngIf="images" [showNavigationArrows]="showNavigationArrows" [showNavigationIndicators]="showNavigationIndicators">
+        <ng-template ngbSlide *ngFor="let image of images">
+          <div class="picsum-img-wrapper">
+            <img [src]="image" alt="Random slide">
+          </div>
+        </ng-template>
+    </ngb-carousel>
+    
+    <div class="c1">
+      <div class="c2">
+        <div class="propInfo">
+          <p class="header">{{propertyData.name}}</p>
+          <div class="container">
+            <p>property type: <span class="fw-bold">{{propertyData.propType}}</span></p>
+            <p>Governerate : <span class="fw-bold">{{propertyData.governorate}}</span></p>
+            <p>Address : <span class="fw-bold">{{propertyData.address}}</span></p>
+            <p>type :<span class="fw-bold">{{propertyData.rentOrBuy}}</span></p>
+            <p>Price :<span class="fw-bold">{{propertyData.price}}$</span></p>      
+          </div>
+        </div>
+
+        <div class="controls">
+          <div class="addToFavDiv">
+            <button class="addToFavButton" (click)="AddToFavOrDelete()">
+              <i [ngClass]="{'fa-heart':true,'fa-regular':!favourite, 'fa':favourite}"></i>
+            </button>
+            <p>Add to favourites</p>
+          </div>
+
+          <div class="contactDiv">
+            <button class="contactButton">
+              <i class="fa fa-envelope"></i>
+            </button>
+            <p>contact seller</p>
+          </div>
+          
+          <div class="favDiv">
+            <button class="favButton">
+              <i class='fa fa-heart'></i>
+            </button>
+            <p>{{propertyData.noOfFav}}</p>
+          </div>
+
+          <div class="viewsDiv">
+            <div class="eyeContainer">
+              <i class="fa fa-eye"></i>
+            </div>
+            <p>{{propertyData.noOfViews}}</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="description">
+        <p class="header">Description</p>
+        <p class="pt-4" *ngIf="propertyData.description">{{propertyData.description}}</p>
+        <p class="pt-4" *ngIf="!propertyData.description">there is no description for this property</p>
+      </div>
+    </div>
 </div>
 
 

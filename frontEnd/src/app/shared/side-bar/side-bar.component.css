@@ -1,0 +1,243 @@
+/* colors */
+/* buttons */
+/* headers and text */
+/* pages */
+* {
+  color: #1f386e;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+/***** container and sideBar *****/
+.container {
+  padding: 0;
+  height: 100%;
+  background-color: #f6f6f6;
+  border-bottom: 2px solid #1f386e;
+}
+
+.sideBar {
+  position: fixed;
+  left: 0;
+  top: 179px;
+  width: 200px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-transition: all 0.4s;
+  transition: all 0.4s;
+}
+
+@media screen and (max-width: 360px) {
+  .sideBar {
+    top: 209px;
+  }
+}
+
+.open {
+  left: 0;
+}
+
+.closed {
+  width: 65px;
+}
+
+@media screen and (max-width: 360px) {
+  .closed {
+    width: 0;
+  }
+}
+
+.closed li {
+  width: 65px;
+}
+
+.closed a {
+  display: none;
+  -webkit-transition: 0.4s ease;
+  transition: 0.4s ease;
+}
+
+.closed .fa-circle-arrow-down {
+  display: none;
+  -webkit-transition: 0.4s ease;
+  transition: 0.4s ease;
+}
+
+/***** elements *****/
+ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+li {
+  width: 200px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  border-top: 2px solid #1f386e;
+  cursor: pointer;
+}
+
+li:last-of-type {
+  border-bottom: 2px solid #1f386e;
+}
+
+i {
+  font-size: 24px;
+  padding: 10px;
+  margin: 0 10px;
+}
+
+a {
+  margin: auto 0;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #1f386e;
+}
+
+.c1 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.c2 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+.c3 {
+  display: none;
+  height: 0;
+}
+
+/***** control buttons *****/
+.fa-bars, .fa-close {
+  position: fixed;
+  font-size: 24px;
+  margin: 10px;
+  color: #1f386e;
+  cursor: pointer;
+}
+
+.fa-close {
+  left: 140px;
+}
+
+.fa-bars {
+  border: 1px solid #888;
+}
+
+.openBtn, .closedBtn {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-transition: 0.6s ease;
+  transition: 0.6s ease;
+}
+
+.openBtn {
+  width: 200px;
+}
+
+.openBtn .fa-close {
+  opacity: 1;
+  -webkit-transition: 0.6s ease;
+  transition: 0.6s ease;
+}
+
+.closedBtn {
+  width: 65px;
+}
+
+@media screen and (max-width: 360px) {
+  .closedBtn {
+    width: 0;
+  }
+}
+
+.closedBtn .fa-close {
+  opacity: 0;
+  -webkit-transition: 0.6s ease;
+  transition: 0.6s ease;
+}
+
+@media screen and (max-width: 360px) {
+  .closedBtn .fa-bars {
+    color: white;
+    background-color: #1f386e;
+    z-index: 5;
+  }
+}
+
+/***** dropdown *****/
+.open-d {
+  padding-bottom: 0;
+  padding-top: 10px;
+}
+
+.open-d .secondary {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  border-top: 1px solid #888;
+  padding: 5px 0;
+  -webkit-transition: 0.6s ease;
+  transition: 0.6s ease;
+  height: 100%;
+}
+
+.open-d .secondary:last-of-type {
+  border-bottom: 1px solid #888;
+}
+
+.closed-d {
+  padding-bottom: 10px;
+  padding-top: 10px;
+}
+
+.closed-d .secondary {
+  height: 0;
+}
+
+.closed-d .secondary a {
+  font-size: 0;
+}
+/*# sourceMappingURL=side-bar.component.css.map */

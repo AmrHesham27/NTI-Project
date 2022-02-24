@@ -18,7 +18,7 @@ class User {
             sendEmails(user.email, `${user.otp}`)
             res.status(200).send({
                 apiStatus: true,
-                data: user,
+                data: user.otp, // for ease of development and should be removed later
                 message: "user was added successfully"
             })
         }
@@ -127,45 +127,6 @@ class User {
             res.status(500).send({apiStatus:false, data:e.message, message:"could not edit user"})
         }
     }
-    static addAdrr = async(req, res)=>{
-        try{
-            let user = req.user
-            let newAddr = req.body.newAddr
-            user.addresses.push(newAddr)
-            await user.save()
-            res.status(200).send({apiStatus:true, data:user, message:"address was added"})
-        }
-        catch(e){
-            res.status(500).send({apiStatus:false, data:e.message, message:"could not add address"})
-        }
-    }
-
-    static editAddr = async(req, res)=>{
-        try{
-            let user = req.user
-            let addrId = req.body.addrId
-            let newContent = req.body.newContent
-            let newType = req.body.newType
-            let isDefault = req.body.isDefault 
-            // check if address exist
-            let isAddr = user.addresses.findIndex(i => i._id == addrId)
-            if(isAddr == -1) throw new Error('this address id does not exist')
-            // update 
-            if (isDefault) user.addresses.forEach(i => i.isDefault = false)
-            user.addresses.forEach(i => {
-                if(i._id == addrId){
-                    if(newContent) i.addrContent = newContent
-                    if(newType) i.addrType = newType
-                    if(isDefault) i.isDefault = isDefault
-                }  
-            })
-            await user.save()
-            res.status(200).send({apiStatus:true, data:user, message:"address was edited"})
-        }
-        catch(e){
-            res.status(500).send({apiStatus:false, data:e.message, message:"could not edit address"})
-        }
-    }
     static addImage = async(req, res) => {
         try{
             // if avatr exist delete it
@@ -188,7 +149,8 @@ class User {
     static deleteMyAccount = async(req, res) => {
         try{
             let user = req.user
-            await userModel.deleteOne({ _id: user._id });
+            if(user.userType == 'agent') await propertyModel.deleteMany({agentId: user._id})
+            await userModel.deleteOne({ _id: user._id });            
             res.status(200).send({apiStatus:true, message:"user was deleted"})
         }
         catch(e){
@@ -201,7 +163,7 @@ class User {
         try{
             let user = req.user
             let newEmail = req.body.newEmail
-            if(!validator.isEmail(newEmail)) throw new Error("invalid email format")
+            if(!validator.isEmail(newEmail)) throw new Error(`invalid email format`)
             let otp = otpGenerator.generate(12)
             user.otp = otp
             user.newEmail = newEmail
@@ -218,7 +180,7 @@ class User {
         try{
             let user = req.user
             let otp = req.body.otp
-            if(user.otp != otp) throw new Error('otp is wrong')
+            if(user.otp != otp) throw new Error(`otp is wrong`)
             user.email = user.newEmail 
             await user.save()
             res.status(200).send({apiStatus:true, message:`user email was changed to ${user.email}`})
@@ -239,10 +201,10 @@ class User {
             await user.save()
             // should send link to the website not localhost:3000
             // send link in respond only in development
-            sendEmails(user.email, `<h2>localhost:3000/sendNewPassword/${otp}</h2>`)
+            sendEmails(user.email, `<h2>localhost:4200/sendNewPassword/${otp}/${user.email.slice(0,5)}</h2>`)
             res.status(200).send({
                 apiStatus:true, 
-                data:`localhost:3000/user/sendNewPassword/${otp}`, 
+                data:`localhost:4200/sendNewPassword/${otp}/${user.email}`, 
                 message:`otp was sent to ${user.email}`
             })
         }
@@ -252,20 +214,24 @@ class User {
     }
     // 2
     static sendNewPassword = async(req, res) => {
+        // coparing the otp and the first 8 letters of the email
         try{
             let otp = req.params.otp
+            let paramsEmail = req.params.email
             let user = await userModel.findOne({otp})
-            if(!user) throw new Error('link is not valid')
-            let newPassword = req.body.newPassword
-            user.password = newPassword
+            let newPassword = await req.body.newPassword
+            if(!user) 
+                throw new Error('link is not valid')
+            if(user.email != paramsEmail) 
+                throw new Error('link is not valid email')
+            user.password = await bcryptjs.hash(newPassword, 12)
             await user.save()
-            res.status(200).send({apiStatus:true, data:user, message:'password changed successfully'})
+            res.status(200).send({apiStatus:true, data:newPassword, message:'password changed successfully'})
         }
         catch(e){
             res.status(500).send({apiStatus:false, data:e.message, message:`could not update password`})
         }
     }
-    
     static sendMssg = async(req, res) => {
         try{
             let user = req.user
@@ -335,7 +301,6 @@ class User {
             res.status(500).send({apiStatus:false, data:e.message, message:`property was not fetched`})
         }
     }
-    // not tested
     static search = async(req, res) => {
         try{
             // data to get from user
@@ -356,15 +321,6 @@ class User {
             res.status(500).send({apiStatus:false, data:e.message, message:`could not fetch data`})
         }
     }
-    static AllProperties = async(req, res) => {
-        try{
-            let props = await propertyModel.find({})
-            res.status(200).send({apiStatus:true, data:props, message:`data was fetched`})
-        }
-        catch(e){
-            res.status(500).send({apiStatus:false, data:e.message, message:`data was not fetched`})
-        }
-    } 
     /********** client functions ***********/  
     static addFavProp = async(req, res)=>{
         try{
@@ -391,7 +347,8 @@ class User {
     static showAllFav = async(req, res)=>{
         try{
             let userAllFav = req.user.favourites
-            res.status(200).send({apiStatus:true, data:userAllFav, message:"favourites were fetched"})
+            let properties = await propertyModel.find({_id: userAllFav })
+            res.status(200).send({apiStatus:true, data:properties, message:"favourites were fetched"})
         }
         catch(e){
             res.status(500).send({apiStatus:false, data:e.message, message:"could not add fetch favourites"})

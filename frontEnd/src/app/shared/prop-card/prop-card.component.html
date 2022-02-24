@@ -2,8 +2,20 @@
     <img *ngIf="avatar" class="card-img-top" [src]='avatarPath(avatar)' alt="property">
     <img *ngIf="!avatar" class="card-img-top" src='https://www.generationsforpeace.org/wp-content/uploads/2018/03/empty-300x240.jpg' alt="property">
     <div class="card-body">
-      <h5 class="card-title">{{name}}</h5>
-      <p class="card-text">${{price}}</p>
-      <p class="card-text">{{address}}</p>
+      <div class="c1">
+        <h5 class="card-title">{{name}}</h5>
+        <p class="card-text price">${{price}}</p>
+      </div>
+      <div class="c1">
+        <p class="card-text">{{address}}</p>
+        <div class="iconCnotainer">
+          <div class="noOfViews">
+            <p>{{noOfViews}}</p>
+          </div>
+          <div class="icon">
+            <i class="fa fa-eye"></i>
+          </div>
+        </div>
+      </div>
     </div>
 </div>

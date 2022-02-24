@@ -1,0 +1,36 @@
+<div class="page">
+    <app-side-bar></app-side-bar>
+    <div class="container-xl px-4 mt-2">
+        <div class="col-xl-8">
+            <div class="card mb-4">
+                <div class="card-header">Change Email</div>
+                <div class="card-body">
+                    <div>After you enter your new Email you will recieve OTP on your Email</div>
+                    <div>After confirming the OTP your email will be changed</div>
+                    <form class="myForm" [formGroup]="changeEmailForm">
+                        <div class="mb-3 formField mt-5">
+                            <label class="small mb-1">New Email</label>
+                            <input formControlName="newEmail" class="form-control" type="email" placeholder="Enter your new Email">
+                        </div>
+                        <div class="buttonContainer">
+                            <button (click)="changeEmail()" class="changeButton">Change Email</button>
+                        </div>
+                        <div class="mb-3 formField mt-5">
+                            <label class="small mb-1">OTP</label>
+                            <input formControlName="OTP" class="form-control" type="text" placeholder="Enter OTP">
+                        </div>
+                        <div class="buttonContainer mb-4">
+                            <button (click)="confirmChangeEmail()" class="changeButton">Confirm</button>
+                        </div>
+                    </form>
+                    <div class="alert alert-success m-3 p-0" *ngIf="successMssg != ''">
+                        <p class="p-3 m-0">{{successMssg}}</p>
+                    </div>
+                    <div class="alert alert-danger m-3 p-0" *ngIf="failMssg != ''">
+                        <p class="p-3 m-0">{{failMssg}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

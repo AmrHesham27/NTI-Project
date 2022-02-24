@@ -9,10 +9,8 @@ import { Router } from "@angular/router"
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-
   constructor(private _auth:AuthUserService, private router: Router) { }
   ngOnInit(): void {
-    if(this._auth.isUserLoggedIn){this.router.navigateByUrl('/myProfile')}
   }
   login:FormGroup = new FormGroup({
     email: new FormControl('', [Validators.required]),
@@ -34,7 +32,9 @@ export class LoginComponent implements OnInit {
           this._auth.userData = res.data.user
           localStorage.setItem("proToken", res.data.token) 
         },
-        (e)=>{ this.failMssg =  e.error.data },
+        (e)=>{ 
+          this.failMssg = "Invalid email or password" 
+        },
         ()=>{
           this.errorsObject['email'] = false
           this.errorsObject['password'] = false
@@ -55,8 +55,5 @@ export class LoginComponent implements OnInit {
         this.router.navigateByUrl('/myProfile')
       }
     )
-  }
-  goToRegister(){
-    this.router.navigateByUrl('/register')
   }
 }

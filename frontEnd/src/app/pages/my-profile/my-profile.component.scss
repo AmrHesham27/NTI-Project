@@ -1,0 +1,88 @@
+@import '../../scss/variables.scss';
+/***** page *****/
+.page {
+    @include profile;
+}
+.img-account-profile {
+    height: 10rem;
+    @media screen and (max-width:340px) {
+        width: 160px;
+    }
+}
+.card {
+    box-shadow: 0 0.15rem 1.75rem 0 rgba(33 ,40 ,50 , 0.15);
+    .card-header {
+        font-weight: 500;
+        padding: 1rem 1.35rem;
+        margin-bottom: 0;
+        background-color: rgba(33, 40, 50, 0.03);
+        border-bottom: 1px solid rgba(33, 40, 50, 0.125);
+    }
+}
+.form-control, .dataTable-input {
+    display: block;
+    width: 100%;
+    padding: 0.875rem 1.125rem;
+    font-size: 0.875rem;
+    font-weight: 400;
+    line-height: 1;
+    color: #69707a;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #c5ccd6;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border-radius: 0.35rem;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+.nav-borders .nav-link.active {
+    font-weight: 700;
+    border-bottom: 2px solid white;
+}
+.nav-borders .nav-link {
+    color: white;
+    border-bottom-width: 0.125rem;
+    border-bottom-style: solid;
+    border-bottom-color: transparent;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    padding-left: 0;
+    padding-right: 0;
+    margin-left: 1rem;
+    margin-right: 1rem;
+}
+/***** buttons *****/
+.saveButton {
+    @include sucessBtn;
+    border-radius: 5px;
+}
+.editButton {
+    @include sucessBtn;
+    border-radius: 5px;
+}
+input[type="file"] {
+    display: none;
+}
+/*****  *****/
+.formField {
+    max-width: 320px;
+    margin: 0 auto;
+    @media screen and (max-width: 576px) {
+        width: 100%;
+    }
+}
+.buttonContainer{
+    margin: 0 auto;
+    width: 150px;
+}
+.upload_image_Buttons_container{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin: 0 auto;
+    margin-top: 15px;
+}
+.container-xl {
+    @include profileContainer;
+}

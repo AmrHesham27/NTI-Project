@@ -1,29 +1,39 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthUserService } from 'src/app/services/user/auth-user.service';
 import { ActivatedRoute } from '@angular/router';
-import { SimpleChanges } from '@angular/core';
+import {NgbCarouselConfig} from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-show-property',
   templateUrl: './show-property.component.html',
-  styleUrls: ['./show-property.component.css']
+  styleUrls: ['./show-property.component.css'],
+  providers: [NgbCarouselConfig]
 })
 export class ShowPropertyComponent implements OnInit {
 
-  constructor(private _auth:AuthUserService, private activatedRoute: ActivatedRoute) {}
+  constructor(
+              private _auth:AuthUserService, 
+              private activatedRoute: ActivatedRoute,
+              config: NgbCarouselConfig
+              ) {
+                config.showNavigationArrows = true;
+                config.showNavigationIndicators = true;
+              }
+  ngOnInit(): void {
+    this.getPropertyData()
+    console.log('getPropertyData')
+  }
   propertyData:any = null
+  favourite:boolean = false
   getPropertyData(){
     let id = this.activatedRoute.snapshot.params['id']
     this._auth.showProperty(id).subscribe(
       (res:any)=>{
         console.log(res)
         this.propertyData = res.data
-        if(this._auth.userData.favourites.includes(id)){
-          this.userMssg = 'remove from favourites'
-        }
-        else {
-          this.userMssg = 'add to favourites'
-        }
+        this.images = this.getImagesPaths()
+        this._auth.userData.favourites.includes(id) ?
+            this.favourite = true : this.favourite = false
       },
       (e)=>{
         console.log(e)
@@ -31,27 +41,30 @@ export class ShowPropertyComponent implements OnInit {
       ()=>{}
     )
   }
-  ngOnChanges(changes: SimpleChanges) {
-    this.getPropertyData()
+  getImagesPaths(){
+    let avatar = `${this._auth.commonApiUrl}/${this.propertyData.avatar.replace('.', '/')}`
+    let images:string[] = []
+    if(this.propertyData.gallery != []){
+      this.propertyData.gallery
+      .forEach((img:string) => images.push(`${this._auth.commonApiUrl}/${img.replace('.', '/')}`))
+    }
+    return [...images, avatar]
   }
-  ngOnInit(): void {
-    this.getPropertyData()
-  }
-  getAvatarPath(){
-    return `${this._auth.commonApiUrl}/${this.propertyData.avatar.replace('.', '/')}`
-  }
-  favButtonText:string = 'Add to favourites'
-  userMssg:string = ''
   AddToFavOrDelete(){
+    if (this._auth.userData.userType != 'client'){
+      alert('only customers can have favourite properties')
+      return
+    }
     if (!this._auth.isUserLoggedIn){
-      this.userMssg = 'you have to login first'
+      alert('please login firstly')
     }
     else {
       let id = this.activatedRoute.snapshot.params['id']
-      if(this._auth.userData.favourites.includes(id)){
+      if(this.favourite){
         this._auth.deleteFavProp(id).subscribe(
           (res:any)=>{
             console.log(res)
+            this.favourite = false
           },
           (e)=>{
             console.log(e)
@@ -63,6 +76,7 @@ export class ShowPropertyComponent implements OnInit {
       this._auth.addFavProp({propId:this.propertyData._id}).subscribe(
         (res:any)=>{
           console.log(res)
+          this.favourite = true
         },
         (e)=>{
           console.log(e)
@@ -71,4 +85,8 @@ export class ShowPropertyComponent implements OnInit {
       )}
     }
   }
+  // for carousel 
+  showNavigationArrows = true;
+  showNavigationIndicators = false;
+  images: string[] = []
 }

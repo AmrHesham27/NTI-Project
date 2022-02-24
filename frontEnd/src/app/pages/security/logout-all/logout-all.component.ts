@@ -18,28 +18,7 @@ export class LogoutAllComponent implements OnInit {
       (res:any)=>{
         localStorage.removeItem('proToken')
         this._auth.isUserLoggedIn = false
-        this._auth.userData = {
-          userType:'',
-          name:'',
-          password:'',
-          email:'',
-          newEmail:'', 
-          phoneNumber:'', 
-          favourites:[],
-          notifications:[],
-          tokens:[],
-          otp:'',
-          activated:false, 
-          addresses:[ 
-              {
-                  addrType:'',
-                  addrContent:'',
-                  isDefault:false
-              }
-          ],
-          avatar:''
-        }
-        this.router.navigateByUrl('/login')
+        this.router.navigateByUrl('/')
       },
       (e)=>{
         console.log(e)

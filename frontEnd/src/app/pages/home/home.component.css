@@ -1,9 +1,466 @@
-li {
-    list-style-type:none
+/* colors */
+/* buttons */
+/* headers and text */
+/* pages */
+/***** page *****/
+.page {
+  background-color: #1f386e;
+  color: white;
 }
-ul {
+
+/****** search section *****/
+.heroContainer {
+  height: 60vh;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  overflow-y: hidden;
+  -webkit-box-shadow: 200px 200px 200px 200px rgba(0, 0, 0, 0.4) inset;
+          box-shadow: 200px 200px 200px 200px rgba(0, 0, 0, 0.4) inset;
+}
+
+.heroContainer .selectedBtn {
+  background-color: white !important;
+  color: #1f386e !important;
+  font-weight: 900 !important;
+}
+
+.heroContainer option {
+  color: grey;
+}
+
+.heroContainer input {
+  border-radius: 0;
+  width: 23%;
+}
+
+.heroContainer select {
+  border-radius: 0;
+  padding: 5px;
+  width: 23%;
+}
+
+.heroContainer .searchButton {
+  width: 8%;
+  padding: 10px;
+  border: none;
+  font-weight: 500;
+  background-color: #1f386e;
+  color: #fff;
+}
+
+.heroContainer .searchButton:hover {
+  background-color: #34bb46;
+}
+
+.heroContainer h1 {
+  margin: 10vh;
+  font-weight: 600;
+}
+
+@media screen and (max-width: 360px) {
+  .heroContainer h1 {
+    font-size: 22px;
+  }
+}
+
+.heroContainer .conatiner {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.heroContainer .searchBar {
+  background-color: #1f386e;
+  width: 86%;
+  margin: 0 10vw;
+  max-width: 760px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.heroContainer .searchBar .buyRentButtons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+.heroContainer .searchBar .buyRentButtons input {
+  margin-left: 6%;
+  width: 100%;
+}
+
+.heroContainer .searchBar .buyRentButtons button {
+  background-color: #1f386e;
+  color: #fff;
+  border: 2px solid white;
+  border-radius: 5px;
+  padding: 12px 15px;
+  font-weight: 600;
+  border-radius: 0;
+  padding: 5px 30px;
+}
+
+.heroContainer .searchBar .buyRentButtons button:hover {
+  background-color: white;
+  color: #1f386e;
+}
+
+.heroContainer .searchInputs {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+@media screen and (max-width: 760px) {
+  .heroContainer .searchBar {
+    width: 100%;
+    margin: 0;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .heroContainer {
+    height: 100vh;
+  }
+  .heroContainer .searchButton {
+    width: 90%;
+    margin: 0 5% 10px 5%;
+  }
+  .heroContainer .searchBar .buyRentButtons {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .heroContainer .searchBar .buyRentButtons .buttons {
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    padding: 20px 0;
+  }
+  .heroContainer .searchBar .buyRentButtons input {
+    width: 90%;
+    margin: 0 5% 10px 5%;
+  }
+  .heroContainer .searchBar .buyRentButtons button {
+    margin: 0 20px;
+  }
+  .heroContainer .searchInputs {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .heroContainer .searchInputs select {
+    width: 90%;
+    margin: 0 5% 10px 5%;
+  }
+  .heroContainer .searchInputs input {
+    width: 90%;
+    margin: 0 5% 10px 5%;
+  }
+}
+
+/****** contact us section ******/
+.contactUs {
+  width: 86%;
+  margin: 0 7vw;
+  background-color: #1f386e;
+  color: #fff;
+  padding-top: 100px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.09);
+}
+
+.contactUs .getInTouch .smallText {
+  color: rgba(255, 255, 255, 0.65);
+  font-size: 14px;
+  font-weight: 600;
+  margin: 0;
+}
+
+.contactUs .getInTouch .headerOne {
+  font-size: 30px;
+  font-weight: 900;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.09);
+  padding-bottom: 10px;
+  position: relative;
+}
+
+.contactUs .getInTouch .headerOne::after {
+  position: absolute;
+  content: "";
+  background-color: #e52f3c;
+  height: 3px;
+  width: 50px;
+  left: 0;
+  bottom: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.contactUs .getInTouch input {
+  border-radius: 0;
+}
+
+.contactUs .getInTouch textarea {
+  border-radius: 0;
+}
+
+.contactUs .getInTouch button {
+  margin: 30px;
+  background-color: #1f386e;
+  color: #fff;
+  border: 2px solid white;
+  border-radius: 5px;
+  padding: 12px 15px;
+  font-weight: 600;
+}
+
+.contactUs .getInTouch button:hover {
+  background-color: white;
+  color: #1f386e;
+}
+
+.contactUs .contactInfo .smallText {
+  color: rgba(255, 255, 255, 0.65);
+  font-size: 14px;
+  font-weight: 600;
+  margin: 0;
+}
+
+.contactUs .contactInfo .bigText {
+  font-size: 16px;
+  margin: 10px 0 0 0;
+  font-weight: 600;
+}
+
+.contactUs .contactInfo .headerTwo {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.09);
+  padding: 14px 0;
+  font-size: larger;
+  font-weight: 700;
+}
+
+@media screen and (max-width: 768px) {
+  .contactUs {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    padding-bottom: 100px;
+  }
+  .contactUs .getInTouch {
+    width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .contactUs .getInTouch input {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  .contactUs .getInTouch .inputsRow {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    margin-bottom: 20px;
+  }
+  .contactUs .contactInfo {
+    margin-top: 60px;
+    width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
 }
+
+@media screen and (min-width: 768px) {
+  .contactUs {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+  .contactUs .getInTouch {
+    width: 60%;
+  }
+  .contactUs .getInTouch .inputsRow {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+  .contactUs .getInTouch .inputDiv {
+    width: 48%;
+    margin-bottom: 20px;
+  }
+  .contactUs .contactInfo {
+    width: 30%;
+  }
+}
+
+.icons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.icons i {
+  margin: 30px;
+  color: rgba(255, 255, 255, 0.65);
+  font-size: 28px;
+}
+
+@media screen and (max-width: 320px) {
+  .icons i {
+    margin: 20px;
+  }
+}
+
+.icons i:hover {
+  color: white;
+}
+
+/***** who we are section *****/
+.whoWeAre {
+  width: 100%;
+  padding: 100px 7vw 100px 7vw;
+  margin: 0;
+  background-color: #f6f6f6;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.whoWeAre .container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.whoWeAre .container .headerOne {
+  font-size: 30px;
+  font-weight: 900;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.09);
+  padding-bottom: 10px;
+  position: relative;
+  color: #1f386e;
+}
+
+.whoWeAre .container .headerOne::after {
+  position: absolute;
+  content: "";
+  background-color: #e52f3c;
+  height: 3px;
+  width: 50px;
+  left: 0;
+  bottom: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.whoWeAre .container .bigText {
+  font-size: 16px;
+  margin: 10px 0 0 0;
+  font-weight: 600;
+  color: #1f386e;
+}
+
+.whoWeAre .container .imgContainer {
+  float: right;
+  width: 40vw;
+}
+
+.whoWeAre .container .imgContainer img {
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  padding: 25px;
+}
+
+.whoWeAre .container .textContainer {
+  width: 40vw;
+  padding-right: 6vw;
+}
+
+@media screen and (max-width: 1000px) {
+  .whoWeAre .container {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .whoWeAre .container .imgContainer {
+    width: 100%;
+  }
+  .whoWeAre .container .textContainer {
+    width: 100%;
+    padding: 0 0 40px 0;
+  }
+}
+/*# sourceMappingURL=home.component.css.map */

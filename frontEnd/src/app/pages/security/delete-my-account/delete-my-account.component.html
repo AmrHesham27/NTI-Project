@@ -1,0 +1,22 @@
+<div class="page">
+    <app-side-bar></app-side-bar>
+    <div class="container-xl px-4 mt-2 mb-4">
+        <div class="col-xl-8">
+            <div class="card mb-4">
+                <div class="card-header">Delete My Account</div>
+                <div class="card-body">
+                    <form class="myForm">
+                        <p>All of your data will be deleted</p>
+                        <p>You will not be able to restore your account again</p>
+                        <div class="buttonContainer">
+                            <button (click)="deleteAccount()" class="deleteBtn">Delete</button>
+                        </div>
+                    </form>
+                    <div class="alert alert-danger m-3 p-0" *ngIf="failMessage != ''">
+                        <p class="p-3 m-0">{{failMessage}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

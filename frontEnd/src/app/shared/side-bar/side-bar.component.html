@@ -1,0 +1,66 @@
+<div class="container">
+    <div [ngClass]="{'closedBtn':closed, 'openBtn':!closed}">
+        <i (click)="openSideBar()" class="fa fa-bars"></i>
+        <i (click)="closeSideBar()" class="fa fa-close"></i>
+    </div>
+    <ul [ngClass]="{'closed':closed, 'open':!closed, 'sideBar':true}">
+        <li (click)="myRouter('myProfile')" class="closed-d">
+            <div class="c1">
+                <div class="c2">
+                    <i class="fa fa-user"></i>
+                    <a>My profile</a>
+                </div>
+            </div>
+        </li>
+        <li [ngClass]="{'closed-d':!dropDownValues['security'], 'open-d':dropDownValues['security']}">
+            <div (click)="dropDown('security')" class="c1">
+                <div class="c2">
+                    <i class="fa fa-gear"></i>
+                    <a>Security</a>
+                </div>
+                <i class="fa-solid fa-circle-arrow-down"></i>
+            </div>
+            <div (click)="myRouter('myProfile/Security/changeEmail')" class="secondary">
+                <a>Change Email</a>
+            </div>
+            <div (click)="myRouter('myProfile/Security/changePassword')" class="secondary">
+                <a >Change Password</a>
+            </div>
+            <div (click)="myRouter('myProfile/Security/logoutAll')" class="secondary">
+                <a >Logout All</a>
+            </div>
+            <div (click)="myRouter('myProfile/Security/deleteMyAccount')" class="secondary">
+                <a >Delete my account</a>
+            </div>
+        </li>
+        <li [ngClass]="{'closed-d':!dropDownValues['messages'], 'open-d':dropDownValues['messages']}">
+            <div class="c1">
+                <div class="c2">
+                    <i class="fa-solid fa-message"></i>
+                    <a>Messages</a>
+                </div>
+                <i class="fa-solid fa-circle-arrow-down"></i>
+            </div>
+        </li>
+        <li [ngClass]="{'closed-d':!dropDownValues['properties'], 'open-d':dropDownValues['properties']}"
+            *ngIf="_auth.userData.userType == 'agent'">
+            <div class="c1">
+                <div class="c2">
+                    <i class="fa-solid fa-home"></i>
+                    <a>properties</a>
+                </div>
+                <i class="fa-solid fa-circle-arrow-down"></i>
+            </div>
+        </li>
+        <li [ngClass]="{'closed-d':!dropDownValues['properties'], 'open-d':dropDownValues['properties']}"
+            *ngIf="_auth.userData.userType == 'client'"
+            (click)="myRouter('myProfile/myFavourites')">
+            <div class="c1">
+                <div class="c2">
+                    <i class="fa-regular fa-heart"></i>
+                    <a>favourites</a>
+                </div>
+            </div>
+        </li>
+    </ul>
+</div>

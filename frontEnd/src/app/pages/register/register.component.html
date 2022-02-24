@@ -1,65 +1,66 @@
-<div class="img js-fullheight" style="background-image: url(/assets/images/bg.jpg);">
-	<section class="ftco-section">
-		<div class="container">
-			<div class="row justify-content-center">
-				<div class="col-md-6 text-center mb-5">
-					<h2 class="heading-section">Register</h2>
-				</div>
-			</div>
-			<div class="row justify-content-center">
-				<div class="col-md-6 col-lg-4">
-					<div class="login-wrap p-0">
-						<form [formGroup]="register" (ngSubmit)="handleRegister()" class="signin-form" >
-                        <div class="form-group">
-                            <input formControlName="name" (blur)="onBlur('name')" type="text" class="form-control" placeholder="Username" >
-                            <div class="alert alert-danger m-0 p-0" *ngIf="email?.errors?.['required'] && errorsObject['name']">
-                                <p class="p-0 m-0">name requires</p>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <input formControlName="phoneNumber" (blur)="onBlur('phoneNumber')" type="text" class="form-control" placeholder="Phone Number" >
-                            <div class="alert alert-danger m-0 p-0" *ngIf="phoneNumber?.errors?.['required'] && errorsObject['phoneNumber']">
-                                <p class="p-0 m-0">phone number is requires</p>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <input formControlName="email" (blur)="onBlur('email')" type="text" class="form-control" placeholder="Email" >
-                            <div class="alert alert-danger m-0 p-0" *ngIf="email?.errors?.['required'] && errorsObject['email']">
-                                <p class="p-0 m-0">email is requires</p>
-                            </div>
-                        </div>
-
-						<div class="form-group">
-                            <input formControlName="password" (blur)="onBlur('password')" id="password-field" type="password" class="form-control" placeholder="Password"  >
-                            <span toggle="#password-field" class="fa fa-fw fa-eye field-icon toggle-password"></span>
-                            <div class="alert alert-danger m-0 p-0" *ngIf="password?.errors?.['required'] && errorsObject['password']">
-                                <p class="p-0 m-0">password is requires</p>
-                            </div>
-						</div>
-
-                        <div class="form-group">
-                            <select class="form-control" formControlName="userType" (blur)="onBlur('userType')" placeholder="User Type">
-                                <option disabled >User Type</option>
-                                <option value="agent">agent</option>
-                                <option value="client">client</option>
-                            </select>
-                            <div class="alert alert-danger m-0 p-0" *ngIf="userType?.errors?.['required'] && errorsObject['userType']">
-                                <p class="p-0 m-0">user type is requires</p>
-                            </div>
-                        </div>
-
-						<div class="form-group">
-							<button type="submit" class="form-control btn btn-primary submit px-3">Register</button>
-						</div>
-						</form>
-		     		</div>
-                    <div class="alert alert-danger m-3 p-0" *ngIf="failMssg != ''">
-                        <p class="p-3 m-0">{{failMssg}}</p>
+<div class="heroContainer" style="background-image: url(/assets/images/bg.jpg);">
+    <div class="container">
+        <div class="d-flex felx-row justify-content-center">
+            <div class="col-md-6 text-center mb-5">
+                <h2 class="heading-section">Register</h2>
+            </div>
+        </div>
+        <div class="d-flex felx-row justify-content-center">
+            <div class="d-flex flex-column justify-content-center">
+                <form [formGroup]="register" (ngSubmit)="handleRegister()">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input formControlName="name" (blur)="onBlur('name')" type="text" class="form-control" placeholder="Username" >
+                    <div class="alert alert-danger m-0 p-0" *ngIf="name?.errors?.['required'] && errorsObject['name']">
+                        <p class="p-1 m-0">name is required</p>
                     </div>
-				</div>
-			</div>
-		</div>
-	</section>
+                </div>
+                <div class="form-group">
+                    <label for="phoneNumber">Phone Number</label>
+                    <input formControlName="phoneNumber" (blur)="onBlur('phoneNumber')" type="text" class="form-control" placeholder="Phone Number" >
+                    <div class="alert alert-danger m-0 p-0" *ngIf="phoneNumber?.errors?.['required'] && errorsObject['phoneNumber']">
+                        <p class="p-1 m-0">phone number is required</p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input formControlName="email" (blur)="onBlur('email')" type="text" class="form-control" placeholder="Email" >
+                    <div class="alert alert-danger m-0 p-0" *ngIf="email?.errors?.['required'] && errorsObject['email']">
+                        <p class="p-1 m-0">email is required</p>
+                    </div>
+                    <div class="alert alert-danger m-0 p-0" *ngIf="email?.errors?.['email'] && errorsObject['email']">
+                        <p class="p-1 m-0">please enter valid email</p>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input formControlName="password" (blur)="onBlur('password')" id="password-field" type="password" class="form-control" placeholder="Password"  >
+                    <div class="alert alert-danger m-0 p-0" *ngIf="password?.errors?.['required'] && errorsObject['password']">
+                        <p class="p-1 m-0">password is required</p>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="userType">User Type</label>
+                    <select class="form-control" formControlName="userType" (blur)="onBlur('userType')" placeholder="User Type">
+                        <option disabled >User Type</option>
+                        <option value="agent">agent</option>
+                        <option value="client">client</option>
+                    </select>
+                    <div class="alert alert-danger m-0 p-0" *ngIf="userType?.errors?.['required'] && errorsObject['userType']">
+                        <p class="p-1 m-0">user type is required</p>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <button type="submit">Register</button>
+                </div>
+                </form>
+                <div class="alert alert-danger mt-1 p-0" *ngIf="failMssg != ''">
+                    <p class="p-1 m-0">{{failMssg}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

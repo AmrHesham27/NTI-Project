@@ -1,0 +1,10 @@
+{
+    "version": 3,
+    "mappings": "ACAA,YAAY;AAQZ,aAAa;AAuCb,sBAAsB;AA8BtB,WAAW;AD5EX,kBAAkB;AAClB,AAAA,KAAK,CAAC;EC6EF,gBAAgB,EA9EZ,OAAO;EA+EX,KAAK,EA/ED,OAAO;EAgFX,OAAO,EAAE,IAAI;EACb,cAAc,EAAE,GAAG;ED9EnB,UAAU,EAAE,IAAI;CACnB;;AACD,AAAA,YAAY,CAAC;EACT,WAAW,EAAE,IAAI;EACjB,cAAc,EAAE,IAAI;CACvB;;AACD,AAAA,GAAG,CAAC;EACA,OAAO,EAAE,IAAI;EACb,cAAc,EAAE,GAAG;EACnB,SAAS,EAAE,IAAI;CAClB",
+    "sources": [
+        "all-fav.component.scss",
+        "../../../scss/variables.scss"
+    ],
+    "names": [],
+    "file": "all-fav.component.css"
+}

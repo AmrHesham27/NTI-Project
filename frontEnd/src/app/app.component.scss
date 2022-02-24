@@ -1,0 +1,13 @@
+@import './scss/variables.scss';
+.allPages {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: $blue;
+}
+.router {
+    margin-top: 113px;
+    @media screen and (max-width: 360px) {
+        margin-top: 143px;
+    }
+}

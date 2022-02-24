@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthUserService } from 'src/app/services/user/auth-user.service';
 import { ActivatedRoute } from '@angular/router';
 import {NgbCarouselConfig} from '@ng-bootstrap/ng-bootstrap';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-show-property',
@@ -14,6 +15,7 @@ export class ShowPropertyComponent implements OnInit {
   constructor(
               private _auth:AuthUserService, 
               private activatedRoute: ActivatedRoute,
+              private toastr: ToastrService,
               config: NgbCarouselConfig
               ) {
                 config.showNavigationArrows = true;
@@ -52,11 +54,11 @@ export class ShowPropertyComponent implements OnInit {
   }
   AddToFavOrDelete(){
     if (this._auth.userData.userType != 'client'){
-      alert('only customers can have favourite properties')
+      this.toastr.error('only customers can have favourite properties', 'Error', { timeOut: 9000 });
       return
     }
     if (!this._auth.isUserLoggedIn){
-      alert('please login firstly')
+      this.toastr.error('please login firstly', 'Error', { timeOut: 9000 });
     }
     else {
       let id = this.activatedRoute.snapshot.params['id']

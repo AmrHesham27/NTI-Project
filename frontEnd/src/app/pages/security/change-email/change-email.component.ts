@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthUserService } from 'src/app/services/user/auth-user.service';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-change-email',
@@ -9,13 +10,10 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 })
 export class ChangeEmailComponent implements OnInit {
 
-  constructor(private _auth: AuthUserService) { }
+  constructor(private _auth: AuthUserService, private toastr: ToastrService) { }
 
   ngOnInit(): void {
   }
-  // messages
-  successMssg:string = ''
-  failMssg:string = ''
   // form
   changeEmailForm:FormGroup = new FormGroup({
     newEmail: new FormControl('', [Validators.required, Validators.email]),
@@ -27,14 +25,12 @@ export class ChangeEmailComponent implements OnInit {
     let newEmail = this.changeEmailForm.value.newEmail
     this._auth.changeEmail({newEmail}).subscribe(
       (res:any)=>{
-        this.failMssg = ''
-        this.successMssg = 'OTP was sent to your new Email'
+        this.toastr.success('OTP was sent to your new Email', 'Success', { timeOut: 9000 });
         console.log(res)
       },
       (e)=>{
         console.log(e)
-        this.successMssg = ''
-        this.failMssg = 'please enter valid email'
+        this.toastr.error('please enter valid email', 'Error', { timeOut: 9000 });
       },
       ()=>{}
     )
@@ -43,14 +39,12 @@ export class ChangeEmailComponent implements OnInit {
     let OTP = this.changeEmailForm.value.OTP
     this._auth.confirmChangeEmail({otp:OTP}).subscribe(
       (res:any)=>{
-        this.failMssg = ''
-        this.successMssg = 'Your Email was chnaged successfully'
+        this.toastr.success('Your Email was chnaged successfully', 'Success', { timeOut: 9000 });
         this.changeEmailForm.reset()
       },
       (e)=>{
         console.log(e)
-        this.successMssg = ''
-        this.failMssg = 'OTP was wrong , please try again'
+        this.toastr.error('OTP was wrong , please try again', 'Error', { timeOut: 9000 });
       },
       ()=>{}
     )

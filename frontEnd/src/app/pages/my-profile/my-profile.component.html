@@ -51,17 +51,10 @@
                         <div class="mb-3 formField">
                             <label class="small mb-1" >User Type</label>
                             <input readonly [value]='this._auth.userData.userType' class="form-control" type="text" >
-                        </div>
-                       
+                        </div> 
                         <!-- Save changes button-->
                         <button (click)='editUser()' class="editButton" type="button">Save changes</button>
                     </form>
-                    <div class="alert alert-success m-3 p-0" *ngIf="successMssg != ''">
-                        <p class="p-3 m-0">{{successMssg}}</p>
-                    </div>
-                    <div class="alert alert-success m-3 p-0" *ngIf="failMssg != ''">
-                        <p class="p-3 m-0">{{failMssg}}</p>
-                    </div>
                 </div>
             </div>
         </div>

@@ -9,7 +9,7 @@
                         <button [ngClass]="{'selectedBtn': this._auth.searchData.rentOrBuy == 'buy'}" (click)="setBuy()">Buy</button>
                         <button [ngClass]="{'selectedBtn': this._auth.searchData.rentOrBuy == 'rent'}" (click)="setRent()">Rent</button>
                     </div>
-                    <input (keyup)="setAddress($event)" type="text" class="form-control" placeholder="Address" >
+                    <input (keyup)="setValue($event, 'address')" type="text" class="form-control" placeholder="Address" >
                 </div>
                 <div class="searchInputs">
                     <select (change)="setPropType($event)">
@@ -19,13 +19,13 @@
                         <option value="Villa">Villa</option>
                         <option value="Compound">Compound</option>
                     </select>
-                    <select (change)="setGovernerate($event)">
+                    <select (change)="setValue($event, 'governorate')">
                         <option value="Cairo">Cairo</option>
                         <option value="Alexandria">Alexandria</option>
                         <option value="Giza">Giza</option>
                     </select>
-                    <input (keyup)="setMinPrice($event)" type="text" class="form-control" placeholder="minimum price" >
-                    <input (keyup)="setMaxPrice($event)" class="form-control" placeholder="maximum price" >
+                    <input (keyup)="setValue($event, 'minPrice')" type="text" class="form-control" placeholder="minimum price" >
+                    <input (keyup)="setValue($event, 'maxPrice')" class="form-control" placeholder="maximum price" >
                     <button (click)="search()" class="searchButton"><i class="fa fa-search"></i></button>
                 </div>
             </div>

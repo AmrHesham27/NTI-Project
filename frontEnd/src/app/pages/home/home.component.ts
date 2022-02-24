@@ -11,21 +11,14 @@ export class HomeComponent implements OnInit {
   constructor(public _auth:AuthUserService, private router:Router) { }
   ngOnInit(): void {
   }
-  // user inputs - searchData
+  setValue(e:any, input:any){
+    this._auth.searchData[input] = e.target.value
+  }
   setBuy(){
     this._auth.searchData.rentOrBuy = 'buy'
   }
   setRent(){
     this._auth.searchData.rentOrBuy = 'rent'
-  }
-  setMaxPrice(e:any){
-    this._auth.searchData.maxPrice = e.target.value
-  }
-  setMinPrice(e:any){
-    this._auth.searchData.minPrice = e.target.value
-  }
-  setAddress(e:any){
-    this._auth.searchData.address = e.target.value
   }
   setPropType(e:any){
     if (e.target.value == 'All'){
@@ -34,12 +27,7 @@ export class HomeComponent implements OnInit {
     }
     this._auth.searchData.propType = e.target.value
   }
-  setGovernerate(e:any){
-    this._auth.searchData.governorate = e.target.value
-  }
-  // search 
   search(){
     this.router.navigateByUrl('/search')
   }
-    
 }

@@ -30,6 +30,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AllFavComponent } from './pages/profile-properties/all-fav/all-fav.component';
 import { ForgotPasswordComponent } from './pages/forgot-password/forgot-password.component';
 import { SendNewPasswordComponent } from './pages/send-new-password/send-new-password.component';
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
@@ -62,7 +63,8 @@ import { SendNewPasswordComponent } from './pages/send-new-password/send-new-pas
     HttpClientModule,
     BrowserAnimationsModule,
     MatIconModule,
-    NgbModule
+    NgbModule,
+    ToastrModule.forRoot()
   ],
   providers: [
     {provide:HTTP_INTERCEPTORS, useClass:AuthInterceptor, multi:true},

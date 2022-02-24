@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthUserService } from 'src/app/services/user/auth-user.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-delete-my-account',
@@ -9,7 +10,9 @@ import { AuthUserService } from 'src/app/services/user/auth-user.service';
 })
 export class DeleteMyAccountComponent implements OnInit {
 
-  constructor(private _auth:AuthUserService, private router:Router) { }
+  constructor(private _auth:AuthUserService, 
+              private router:Router, 
+              private toastr: ToastrService) { }
 
   ngOnInit(): void {
   }
@@ -17,11 +20,11 @@ export class DeleteMyAccountComponent implements OnInit {
   deleteAccount(){
     this._auth.deleteMyAccount().subscribe(
       (res:any)=>{
-        console.log(res)
+        this.toastr.success('Your accounr was deleted successfully', 'Success', { timeOut: 9000 });
       },
       (e)=>{
         console.log(e)
-        this.failMessage = 'please try again'
+        this.toastr.error('Error happened, please try again', 'Error', { timeOut: 9000 });
       },
       ()=>{}
     )

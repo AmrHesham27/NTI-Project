@@ -3,6 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { AuthUserService } from 'src/app/services/user/auth-user.service';
 import { Router } from "@angular/router"
 import { ActivatedRoute } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-send-new-password',
@@ -13,7 +14,8 @@ export class SendNewPasswordComponent implements OnInit {
 
   constructor(private _auth:AuthUserService, 
               private router:Router, 
-              private activatedRoute: ActivatedRoute) {}
+              private activatedRoute: ActivatedRoute,
+              private toastr: ToastrService) {}
   ngOnInit(): void {
   }
   form:FormGroup = new FormGroup({
@@ -30,19 +32,19 @@ export class SendNewPasswordComponent implements OnInit {
       this._auth.sendNewPassword(userData).subscribe(
         (res:any)=>{
           console.log(res)
-          alert('password was changed successfully')
+          this.toastr.error('password was changed successfully', 'Success', { timeOut: 9000 });
           this.router.navigateByUrl('/login')
         },
         (e)=>{
           console.log(e)
-          alert('this link is invalid')
+          this.toastr.error('this link is invalid', 'Error', { timeOut: 9000 });
         },
         ()=>{
         }
       )
     }
     else {
-      alert('password and confirm password do not match')
+      this.toastr.error('password and confirm password do not match', 'Error', { timeOut: 9000 });
     }
   }
   get newPassword(){ return this.form.get('newPassword')}

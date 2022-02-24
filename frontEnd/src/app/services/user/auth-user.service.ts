@@ -119,14 +119,14 @@ export class AuthUserService {
   confirmChangeEmail(userData:any){ // step 2
     return this._http.post(`${this.commonApiUrl}/confirmChangeEmail`, userData)
   }
-  // send mssg
-  // get mssg
+    // send mssg
+    // get mssg
   /**************************************************************/  
   /* agents only */
-  // add prop
-  // edit prop
-  // dlete prop
-  // all props
+    // add prop
+    // edit prop
+    // delete prop
+    // all props
   /* only clients */
   addFavProp(userData:any){
     return this._http.post(`${this.commonApiUrl}/addFavProp`, userData)

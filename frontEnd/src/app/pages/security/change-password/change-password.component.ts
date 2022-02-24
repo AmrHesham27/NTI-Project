@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthUserService } from 'src/app/services/user/auth-user.service';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-change-password',
@@ -9,13 +10,10 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 })
 export class ChangePasswordComponent implements OnInit {
 
-  constructor(private _auth:AuthUserService) { }
+  constructor(private _auth:AuthUserService, private toastr: ToastrService) { }
 
   ngOnInit(): void {
-    
   }
-  successMssg:string = ''
-  failMssg:string = ''
   formEntry:FormGroup = new FormGroup({
     oldPass: new FormControl('', [Validators.required]),
     newPass: new FormControl('', [Validators.required])
@@ -25,12 +23,12 @@ export class ChangePasswordComponent implements OnInit {
     this._auth.changePassword(this.formEntry.value).subscribe(
       (res:any)=>{
         console.log(res)
-        this.successMssg = res.message
+        this.toastr.success('password was chnaged successfully', 'Success', { timeOut: 9000 });
         this.formEntry.reset()
       },
       (e)=>{
         console.log(e)
-        this.failMssg = 'your old password is wrong'
+        this.toastr.error('your old password is wrong', 'Error', { timeOut: 9000 });
       },
       ()=>{}
     )

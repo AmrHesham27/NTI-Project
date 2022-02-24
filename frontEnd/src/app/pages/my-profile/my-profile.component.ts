@@ -1,13 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthUserService } from 'src/app/services/user/auth-user.service';
-import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
+
 @Component({
   selector: 'app-my-profile',
   templateUrl: './my-profile.component.html',
   styleUrls: ['./my-profile.component.css']
 })
 export class MyProfileComponent implements OnInit {
-  constructor(public _auth:AuthUserService, private router: Router) { }
+  constructor(public _auth:AuthUserService, 
+              private toastr: ToastrService) { }
   ngOnInit(): void {
     console.log('myProfile page')
   }
@@ -45,8 +47,6 @@ export class MyProfileComponent implements OnInit {
     )
   }
   // to edit user
-  successMssg: string = ''
-  failMssg: string = ''
   userName:string = ''
   userPhoneNumber:string = ''
   setUserName(e:any){
@@ -62,11 +62,11 @@ export class MyProfileComponent implements OnInit {
     }
     this._auth.editUser(body).subscribe(
       (res:any)=>{
-        this.successMssg = 'user was edited successfully'
+        this.toastr.error('user was edited successfully', 'Success', { timeOut: 9000 });
         console.log(res)
       },
       (e)=>{
-        this.failMssg = 'could not edit user, try again'
+        this.toastr.error('could not edit user, try again', 'Error', { timeOut: 9000 });
         console.log(e)
       },
       ()=>{}

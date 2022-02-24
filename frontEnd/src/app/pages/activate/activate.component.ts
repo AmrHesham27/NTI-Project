@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthUserService } from 'src/app/services/user/auth-user.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-activate',
@@ -9,9 +10,9 @@ import { AuthUserService } from 'src/app/services/user/auth-user.service';
   styleUrls: ['./activate.component.css']
 })
 export class ActivateComponent implements OnInit {
-
-  constructor(private router:Router, private _auth:AuthUserService ) { }
-
+  constructor(private router:Router, 
+              private _auth:AuthUserService, 
+              private toastr: ToastrService) { }
   ngOnInit(): void {
     if(this._auth.isUserLoggedIn && this._auth.userData['activated']){
       this.router.navigateByUrl('/myProfile')
@@ -24,9 +25,6 @@ export class ActivateComponent implements OnInit {
   }
   // error variable to show fail message on the input
   otpError:boolean = false
-  // messages
-  failMssg:string = ''
-  successMssg:string = ''
   // get otp value from form for error 
   get otp(){ return this.activate.get('otp')}
   // form activate
@@ -43,7 +41,7 @@ export class ActivateComponent implements OnInit {
           this.router.navigateByUrl('/myProfile')
         },
         (e)=>{ 
-          this.failMssg = 'activation otp is wrong'
+          this.toastr.error('activation otp is wrong', 'Error', { timeOut: 9000 });
           console.log(e) 
         },
         ()=>{
@@ -55,7 +53,9 @@ export class ActivateComponent implements OnInit {
   // send new otp to user's email
   sendOtp(){
     this._auth.sendOtp().subscribe(
-      (res:any)=>{ this.successMssg = res.message },
+      (res:any)=>{ 
+        this.toastr.success('New OTP was sent to your Email', 'Success', { timeOut: 9000 }); 
+      },
       (e)=>{ console.log(e) },
       ()=>{}
     )

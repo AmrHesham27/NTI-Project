@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { AuthUserService } from 'src/app/services/user/auth-user.service';
 import { Router } from "@angular/router"
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-login',
@@ -9,7 +10,9 @@ import { Router } from "@angular/router"
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  constructor(private _auth:AuthUserService, private router: Router) { }
+  constructor(private _auth:AuthUserService, 
+              private router: Router,
+              private toastr: ToastrService) { }
   ngOnInit(): void {
   }
   login:FormGroup = new FormGroup({
@@ -20,7 +23,6 @@ export class LoginComponent implements OnInit {
     email: false,
     password: false,
   }
-  failMssg : string = ""
   get password(){ return this.login.get('password')}
   get email(){ return this.login.get('email')}
   onBlur(value:string) : void { this.errorsObject[value] = true } 
@@ -33,7 +35,7 @@ export class LoginComponent implements OnInit {
           localStorage.setItem("proToken", res.data.token) 
         },
         (e)=>{ 
-          this.failMssg = "Invalid email or password" 
+          this.toastr.error('Invalid email or password', 'Error', { timeOut: 9000 });
         },
         ()=>{
           this.errorsObject['email'] = false

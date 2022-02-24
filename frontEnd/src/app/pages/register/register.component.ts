@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { AuthUserService } from 'src/app/services/user/auth-user.service';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-register',
@@ -9,7 +10,9 @@ import { Router } from '@angular/router';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
-  constructor(private _auth:AuthUserService, private router:Router) { }
+  constructor(private _auth:AuthUserService, 
+              private router:Router, 
+              private toastr: ToastrService) { }
   register:FormGroup = new FormGroup({
     name: new FormControl("", [Validators.required, Validators.minLength(3)]),
     phoneNumber: new FormControl('', [Validators.required]),
@@ -25,23 +28,20 @@ export class RegisterComponent implements OnInit {
     userType:false,
     phoneNumber:false
   }
-  successMssg : string = ""
-  failMssg : string = ""
   onBlur(value:string) : void { 
     this.errorsObject[value] = true
-    this.failMssg=''
-    this.successMssg=''
   } 
   handleRegister(){
     let registerData = this.register.value
     if(this.register.valid){
-      this.failMssg = ''
-      this.successMssg = ''
       console.log(registerData)
       this._auth.register(registerData).subscribe(
-        (res:any) => { console.log(res.data) },
+        (res:any) => { 
+          console.log(res.data) 
+          this.toastr.success('You were registered successfully', 'Success', { timeOut: 9000 });
+        },
         (e)=>{ 
-          this.failMssg = 'Registration failed'
+          this.toastr.error('Registration failed', 'Error', { timeOut: 9000 });
           console.log(e) 
         },
         ()=>{

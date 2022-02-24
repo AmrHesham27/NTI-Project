@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthUserService } from 'src/app/services/user/auth-user.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-logout-all',
@@ -9,7 +10,7 @@ import { AuthUserService } from 'src/app/services/user/auth-user.service';
 })
 export class LogoutAllComponent implements OnInit {
 
-  constructor(private _auth:AuthUserService, private router:Router) { }
+  constructor(private _auth:AuthUserService, private router:Router, private toastr: ToastrService) { }
 
   ngOnInit(): void {
   }
@@ -22,6 +23,7 @@ export class LogoutAllComponent implements OnInit {
       },
       (e)=>{
         console.log(e)
+        this.toastr.error('please try again', 'Error', { timeOut: 9000 });
       },
       ()=>{}
     )

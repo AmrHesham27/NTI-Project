@@ -33,6 +33,7 @@ export class LoginComponent implements OnInit {
           this._auth.isUserLoggedIn = true
           this._auth.userData = res.data.user
           localStorage.setItem("proToken", res.data.token) 
+          this.toastr.success('Logged In successfully', 'Success', { timeOut: 9000 });
         },
         (e)=>{ 
           this.toastr.error('Invalid email or password', 'Error', { timeOut: 9000 });

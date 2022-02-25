@@ -219,12 +219,12 @@ class User {
             let otp = req.params.otp
             let paramsEmail = req.params.email
             let user = await userModel.findOne({otp})
-            let newPassword = await req.body.newPassword
+            let newPassword = req.body.newPassword
             if(!user) 
                 throw new Error('link is not valid')
             if(user.email != paramsEmail) 
                 throw new Error('link is not valid email')
-            user.password = await bcryptjs.hash(newPassword, 12)
+            user.password = newPassword
             await user.save()
             res.status(200).send({apiStatus:true, data:newPassword, message:'password changed successfully'})
         }
@@ -374,7 +374,8 @@ class User {
                 let allImages = Object.values(req.files)
                 let avatarPath = allImages.filter(i => {return i[0]['fieldname'] == 'avatar'})[0][0]['path']
                 let galleryArray = allImages.filter(i => {return i[0]['fieldname'] == 'gallery'})[0]
-                let galleryPaths = galleryArray.map(i => i['path'])
+                console.log(galleryArray)
+                let galleryPaths = galleryArray ? galleryArray.map(i => i['path']) : []
                 newProperty = new propertyModel({
                     ...req.body, // all text fields
                     avatar: avatarPath,

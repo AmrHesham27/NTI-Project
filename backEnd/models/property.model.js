@@ -11,7 +11,7 @@ const propertySchema = new mongoose.Schema({
     },
     governorate:{
         type: String,
-        enum: ["Cairo" || "Alexandria" || "Giza"],
+        enum: ["Cairo", "Alexandria", "Giza"],
         required: true
     },
     address:{
@@ -43,6 +43,7 @@ const propertySchema = new mongoose.Schema({
     gallery:[{
         type:String
     }],
+    // next values will not be entered by agent
     agentId:{
         type:mongoose.Schema.Types.ObjectId,
         required:true,

@@ -39,6 +39,6 @@ router.get("/showAllFav", auth, clientType, active, userController.showAllFav)
 // agent only routes
 router.post("/showMyProperties", auth, agentType, active, userController.showMyProperties)
 router.post("/addProperty", auth, agentType, active, manyUploads, userController.addProperty)
-router.post("/deleteProperty/:id", auth, agentType, active, userController.deleteProperty)
+router.delete("/deleteProperty/:id", auth, agentType, active, userController.deleteProperty)
 
 module.exports = router

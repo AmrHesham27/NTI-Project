@@ -9,6 +9,9 @@ import { User } from 'src/app/interfaces/user';
   providedIn: 'root'
 })
 export class AuthUserService {
+  constructor(private _http:HttpClient, private router:Router) { }
+  /***** variables *****/
+  /* user data */
   public isUserLoggedIn = false
   public userData:User  = {
     userType:'',
@@ -31,6 +34,7 @@ export class AuthUserService {
     ],
     avatar:''
   }
+  /* search data for (serach and home pages) */
   public searchData:any = {
     minPrice: undefined,
     maxPrice: undefined,
@@ -38,9 +42,9 @@ export class AuthUserService {
     rentOrBuy: 'buy',
     propType: undefined,
     address: undefined
-  }
+  } 
+  /* for api connection */
   public commonApiUrl:string = 'http://localhost:3000'
-  constructor(private _http:HttpClient, private router:Router) { }
   /****** authentican functions *****/
   /* this function should work for the first time the user open the app or when he refresh */
   authenticate(){
@@ -119,14 +123,19 @@ export class AuthUserService {
   confirmChangeEmail(userData:any){ // step 2
     return this._http.post(`${this.commonApiUrl}/confirmChangeEmail`, userData)
   }
-    // send mssg
-    // get mssg
+  // send mssg => to do
+  // get mssg => to do
   /**************************************************************/  
   /* agents only */
-    // add prop
-    // edit prop
-    // delete prop
-    // all props
+  addProperty(userData:any){
+    return this._http.post(`${this.commonApiUrl}/addProperty`, userData)
+  }
+  deleteProperty(id:any){
+    return this._http.delete(`${this.commonApiUrl}/deleteProperty/${id}`)
+  }
+  showMyProperties(){
+    return this._http.post(`${this.commonApiUrl}/showMyProperties`, {})
+  }
   /* only clients */
   addFavProp(userData:any){
     return this._http.post(`${this.commonApiUrl}/addFavProp`, userData)

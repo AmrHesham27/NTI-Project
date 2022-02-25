@@ -1,0 +1,24 @@
+<div class="page">
+    <app-side-bar></app-side-bar>
+    <div class="myContainer"> 
+        <div *ngIf="properties.length == 0; else props" class="text-center mt-5 p-5">
+            You have no properties yet
+        </div>
+        <ng-template #props>
+            <ul class="c1">
+                    <li *ngFor="let item of properties;">
+                        <app-prop-card  [name]='item.name' 
+                                        [avatar]='item.avatar' 
+                                        [price]='item.price' 
+                                        [address]="item.address" 
+                                        [id]='item._id' 
+                                        [desc]='item.description'
+                                        [noOfViews]="item.noOfViews"
+                                        [Delete]="true"
+                                        (sendIdEvent)="deleteProperty($event)"
+                        ></app-prop-card>
+                    </li>
+            </ul>
+        </ng-template>
+    </div>
+</div>

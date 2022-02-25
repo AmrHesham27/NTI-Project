@@ -47,3 +47,8 @@ img {
 .prop {
     margin: 10px 20px;
 }
+.deleteBtn{
+    @include dangerBtn;
+    width: 50%;
+    border-radius: 0;
+}

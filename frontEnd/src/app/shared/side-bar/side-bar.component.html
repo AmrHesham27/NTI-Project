@@ -44,12 +44,18 @@
         </li>
         <li [ngClass]="{'closed-d':!dropDownValues['properties'], 'open-d':dropDownValues['properties']}"
             *ngIf="_auth.userData.userType == 'agent'">
-            <div class="c1">
+            <div (click)="dropDown('properties')" class="c1">
                 <div class="c2">
                     <i class="fa-solid fa-home"></i>
                     <a>properties</a>
                 </div>
                 <i class="fa-solid fa-circle-arrow-down"></i>
+            </div>
+            <div (click)="myRouter('myProfile/addProperty')" class="secondary">
+                <a >Add property</a>
+            </div>
+            <div (click)="myRouter('myProfile/myProperties')" class="secondary">
+                <a >My Properties</a>
             </div>
         </li>
         <li [ngClass]="{'closed-d':!dropDownValues['properties'], 'open-d':dropDownValues['properties']}"

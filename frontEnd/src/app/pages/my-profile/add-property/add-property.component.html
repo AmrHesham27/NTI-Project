@@ -1,0 +1,71 @@
+<div class="page">
+    <app-side-bar></app-side-bar>
+    <div class="container-xl px-4 mt-2">
+        <div class="col-xl-8">
+            <div class="card mb-4">
+                <div class="card-header">Add Property</div>
+                <div class="card-body">
+                    <form class="myForm" [formGroup]="form">
+                        <div class="mb-3 formField mt-5">
+                            <label class="small mb-1">Name</label>
+                            <input formControlName="name" class="form-control" type="text" placeholder="Enter property name">
+                        </div>
+                        <div class="mb-3 formField mt-5">
+                            <label class="small mb-1">description</label>
+                            <input formControlName="description" class="form-control" type="text" placeholder="Enter property description">
+                        </div>
+                        <div class="mb-3 formField mt-5">
+                            <label class="small mb-1">address</label>
+                            <input formControlName="address" class="form-control" type="text" placeholder="Enter property address">
+                        </div>
+                        <div class="mb-3 formField mt-5">
+                            <label class="small mb-1">price</label>
+                            <input formControlName="price" class="form-control" type="text" placeholder="Enter property price">
+                        </div>
+                        <div class="mb-3 formField mt-5">
+                            <label class="small mb-1">Property Type</label>
+                            <select formControlName="propType" class="form-control">
+                                <option value="Apartment">Apartment</option>
+                                <option value="Duplex">Duplex</option>
+                                <option value="Villa">Villa</option>
+                                <option value="Compound">Compound</option>
+                            </select>
+                        </div>
+                        <div class="mb-3 formField mt-5">
+                            <label class="small mb-1">Governorate</label>
+                            <select formControlName="governorate" class="form-control">
+                                <option value="Cairo">Cairo</option>
+                                <option value="Alexandria">Alexandria</option>
+                                <option value="Giza">Giza</option>
+                            </select>
+                        </div>
+                        <div class="mb-3 formField mt-5">
+                            <label class="small mb-1">Rent Or Buy</label>
+                            <select formControlName="rentOrBuy" class="form-control">
+                                <option value="buy">Buy</option>
+                                <option value="rent">Rent</option>
+                            </select>
+                        </div>
+                        <div class="mb-3 formField mt-5">
+                            <label class="small mb-1">Add Avatar</label>
+                            <label style='margin-right: 10px;'class="btn btn-secondary">
+                                <input (change)="onChangeAvatar($event)" type="file">
+                                Upload Image
+                            </label>
+                        </div>
+                        <div class="mb-3 formField mt-5">
+                            <label class="small mb-1">Add Gallery</label>
+                            <label style='margin-right: 10px;'class="btn btn-secondary">
+                                <input (change)="onChnageGallery($event)" type="file" multiple>
+                                Upload Gallery
+                            </label>
+                        </div>
+                        <div class="buttonContainer">
+                            <button (click)="addProperty()" class="changeButton mt-5 mb-5">Add Property</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

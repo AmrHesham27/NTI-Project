@@ -85,4 +85,23 @@ img {
 .prop {
   margin: 10px 20px;
 }
+
+.deleteBtn {
+  background-color: #e52f3c;
+  color: #fff;
+  border: 2px solid white;
+  border-radius: 5px;
+  padding: 12px 15px;
+  font-weight: 600;
+  border-radius: 5px;
+  padding: 10px 20px;
+  width: 50%;
+  border-radius: 0;
+}
+
+.deleteBtn:hover {
+  background-color: #f6f6f6;
+  color: #e52f3c;
+  border: 2px solid #e52f3c;
+}
 /*# sourceMappingURL=prop-card.component.css.map */

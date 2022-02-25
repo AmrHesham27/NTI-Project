@@ -32,7 +32,7 @@ export class SendNewPasswordComponent implements OnInit {
       this._auth.sendNewPassword(userData).subscribe(
         (res:any)=>{
           console.log(res)
-          this.toastr.error('password was changed successfully', 'Success', { timeOut: 9000 });
+          this.toastr.success('password was changed successfully', 'Success', { timeOut: 9000 });
           this.router.navigateByUrl('/login')
         },
         (e)=>{

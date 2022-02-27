@@ -8,6 +8,8 @@ It is a platform for real estate (Social Engine) where there are two types of us
 - agents : can add properties to the platform 
 - clients : can search for properties, add a property to their favourites and contact agents <br/>
 
+heroku link : https://social-engine-frontend.herokuapp.com/
+
 ## APIs and Functionalities :
 there are 3 types of APIs
 ###### 1 - APIs for all users (both clients and agents)
@@ -42,6 +44,7 @@ there are 3 types of APIs
 ![](screenshots/5.PNG)
 
 ## Under Developement
+* Infrom user with the errors coming from the back end
 * Add refresh token
 * Apply the Messages in the front end
 * Use Socket IO in the backend for messages

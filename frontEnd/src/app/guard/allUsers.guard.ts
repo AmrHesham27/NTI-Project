@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, CanActivate, RouterStateSnapshot, UrlTree } from '@angular/router';
 import { Router } from '@angular/router';
 import { AuthUserService } from '../services/user/auth-user.service';
+import { JwtHelperService } from "@auth0/angular-jwt";
 
 @Injectable({
   providedIn: 'root'
@@ -13,9 +14,15 @@ export class AllUsers implements CanActivate {
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): any {
     let token = this._auth.getProToken()
-    if (token) { 
-      this._auth.isUserLoggedIn = true
-      this._auth.authenticate()
+    if (token) {
+      const helper = new JwtHelperService();
+      const isExpired = helper.isTokenExpired(token);
+      if(!isExpired){
+        this._auth.isUserLoggedIn = true
+        this._auth.authenticate()
+      }
+      else
+      localStorage.removeItem('proToken')
     }
     return true
   }

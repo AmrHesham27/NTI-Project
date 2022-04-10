@@ -18,14 +18,14 @@ export class AuthUserService {
     name:'',
     password:'',
     email:'',
-    newEmail:'', 
-    phoneNumber:'', 
+    newEmail:'',
+    phoneNumber:'',
     favourites:[],
     notifications:[],
     tokens:[],
     otp:'',
-    activated:false, 
-    addresses:[ 
+    activated:false,
+    addresses:[
         {
           addrType:'',
           addrContent:'',
@@ -42,29 +42,29 @@ export class AuthUserService {
     rentOrBuy: 'buy',
     propType: undefined,
     address: undefined
-  } 
+  }
   /* for api connection */
   public commonApiUrl:string = 'http://localhost:3000'
   /****** authentican functions *****/
   /* this function should work for the first time the user open the app or when he refresh */
   authenticate(){
     this.me().subscribe(
-      (res:any)=>{ 
+      (res:any)=>{
         this.isUserLoggedIn = true
         this.userData = res['data']
-        if (!res['data']['activated']) { this.router.navigateByUrl('/activate') } 
+        if (!res['data']['activated']) { this.router.navigateByUrl('/activate') }
       },
-      (e)=>{ 
+      (e)=>{
         this.isUserLoggedIn = false
-        console.log(e) 
+        console.log(e)
       },
-      ()=>{} 
+      ()=>{}
     )
-    return 
+    return
   }
   /* this function check if user is logged in or not */
   getProToken(){
-    return !!localStorage.getItem('proToken')
+    return localStorage.getItem('proToken')
   }
   /***** connect to api *****/
   /* no middleware needed */
@@ -125,7 +125,7 @@ export class AuthUserService {
   }
   // send mssg => to do
   // get mssg => to do
-  /**************************************************************/  
+  /**************************************************************/
   /* agents only */
   addProperty(userData:any){
     return this._http.post(`${this.commonApiUrl}/addProperty`, userData)
